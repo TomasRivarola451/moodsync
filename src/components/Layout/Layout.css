@@ -1,17 +1,18 @@
 /* ====================================== */
-/* LAYOUT PRINCIPAL - 100VH SIN SCROLL */
+/* LAYOUT PRINCIPAL - SCROLL NATURAL */
 /* ====================================== */
 
 .app-layout {
-  height: 100vh; /* ← CAMBIO: height fijo para 100vh */
+  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* ← CAMBIO: centrado */
+  align-items: flex-start;
   background: var(--bg-gradient);
-  padding: 20px; /* ← REDUCIDO: era 40px */
+  padding: 40px 20px 80px; /* padding bottom para el botón de audio */
   position: relative;
-  overflow: hidden; /* ← CAMBIO: sin scroll */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Capa atmosférica animada de fondo */
@@ -44,7 +45,7 @@
   }
 }
 
-/* Particles layer - se activa por tema */
+/* Particles layer */
 .particles-layer {
   position: fixed;
   top: 0;
@@ -61,27 +62,25 @@
   opacity: 1;
 }
 
-/* Contenedor interno del contenido */
+/* Contenedor interno */
 .app-layout-inner {
   width: 100%;
   max-width: 1400px;
-  height: calc(100% - 40px); /* ← NUEVO: altura fija */
   display: flex;
   flex-direction: column;
-  gap: 20px; /* ← REDUCIDO: era 32px */
+  gap: 32px;
   position: relative;
   z-index: 2;
 }
 
-/* Responsive: ajustar padding en mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .app-layout {
-    padding: 16px;
+    padding: 24px 16px 80px;
   }
   
   .app-layout-inner {
-    height: calc(100% - 32px);
-    gap: 16px;
+    gap: 24px;
   }
 }
 
@@ -91,30 +90,24 @@
 
 [data-theme="happy"] {
   --aura-color-1: rgba(34, 197, 94, 0.15);
-  --aura-color-2: rgba(34, 197, 94, 0.08);
 }
 
 [data-theme="sad"] {
   --aura-color-1: rgba(14, 165, 233, 0.12);
-  --aura-color-2: rgba(14, 165, 233, 0.06);
 }
 
 [data-theme="energetic"] {
   --aura-color-1: rgba(249, 115, 22, 0.15);
-  --aura-color-2: rgba(249, 115, 22, 0.08);
 }
 
 [data-theme="chill"] {
   --aura-color-1: rgba(139, 92, 246, 0.12);
-  --aura-color-2: rgba(139, 92, 246, 0.06);
 }
 
 [data-theme="angry"] {
   --aura-color-1: rgba(239, 68, 68, 0.15);
-  --aura-color-2: rgba(239, 68, 68, 0.08);
 }
 
 [data-theme="tired"] {
   --aura-color-1: rgba(100, 116, 139, 0.12);
-  --aura-color-2: rgba(100, 116, 139, 0.06);
 }

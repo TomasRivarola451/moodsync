@@ -1,13 +1,12 @@
 /* ====================================== */
-/* MOOD RESULT - VERSIÓN COMPACTA 100VH */
+/* MOOD RESULT - DISEÑO LIMPIO Y FUNCIONAL */
 /* ====================================== */
 
 .mood-result {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px 24px; /* ← REDUCIDO: era 28px 32px */
-  border-radius: 16px;
+  padding: 28px 32px;
+  border-radius: 20px;
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(148, 163, 184, 0.3);
   box-shadow: 
@@ -15,8 +14,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
   animation: mood-result-appear 0.5s cubic-bezier(0.16, 0.84, 0.44, 1);
-  max-height: 100%; /* ← NUEVO: limitar altura */
-  overflow: hidden;
 }
 
 @keyframes mood-result-appear {
@@ -31,14 +28,13 @@
 }
 
 /* ====================================== */
-/* HEADER DEL MOOD - COMPACTO */
+/* HEADER */
 /* ====================================== */
 
 .mood-header {
-  margin-bottom: 12px; /* ← REDUCIDO: era 20px */
-  padding-bottom: 12px; /* ← REDUCIDO: era 16px */
+  margin-bottom: 20px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-  flex-shrink: 0; /* ← NUEVO: no comprimir header */
 }
 
 .mood-heading {
@@ -46,12 +42,12 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 6px; /* ← REDUCIDO: era 8px */
+  margin-bottom: 8px;
 }
 
 .mood-heading-text h2 {
-  margin: 0 0 4px; /* ← REDUCIDO: era 6px */
-  font-size: 1.4rem; /* ← REDUCIDO: era 1.8rem */
+  margin: 0 0 6px;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   background: linear-gradient(
@@ -67,56 +63,54 @@
 .mood-main-line {
   margin: 0 0 4px;
   font-weight: 500;
-  font-size: 0.9rem; /* ← REDUCIDO: era 1.05rem */
+  font-size: 1rem;
   color: var(--secondary-color);
 }
 
 .mood-description {
-  margin: 4px 0; /* ← REDUCIDO: era 8px */
-  font-size: 0.85rem; /* ← REDUCIDO: era 0.95rem */
+  margin: 8px 0;
+  font-size: 0.95rem;
   opacity: 0.9;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .mood-message {
-  margin: 4px 0; /* ← REDUCIDO: era 8px */
-  font-size: 0.95rem; /* ← REDUCIDO: era 1.1rem */
+  margin: 8px 0;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--primary-color);
 }
 
 .mood-reason {
-  margin: 0 0 6px; /* ← REDUCIDO: era 8px */
-  font-size: 0.8rem; /* ← REDUCIDO: era 0.88rem */
+  margin: 0 0 8px;
+  font-size: 0.88rem;
   opacity: 0.8;
 }
 
 .mood-quote {
-  margin: 4px 0 0; /* ← REDUCIDO: era 8px */
-  font-size: 0.82rem; /* ← REDUCIDO: era 0.92rem */
+  margin: 8px 0 0;
+  font-size: 0.9rem;
   font-style: italic;
   opacity: 0.85;
-  padding-left: 12px;
-  border-left: 2px solid var(--accent-color);
+  padding-left: 14px;
+  border-left: 3px solid var(--accent-color);
 }
 
 /* ====================================== */
-/* LAYOUT HORIZONTAL: CANCIONES | ÁLBUMES */
+/* LAYOUT HORIZONTAL */
 /* ====================================== */
 
 .mood-result-content {
-  flex: 1;
   display: grid;
-  gap: 20px; /* ← REDUCIDO: era 32px */
+  gap: 32px;
   grid-template-columns: 1fr;
-  min-height: 0;
-  overflow: hidden;
+  margin-top: 20px;
 }
 
 @media (min-width: 900px) {
   .mood-result-content {
     grid-template-columns: 1.6fr 1fr;
-    align-items: stretch;
+    align-items: start;
   }
 }
 
@@ -124,7 +118,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  gap: 16px;
 }
 
 .mood-result-empty {
@@ -133,27 +127,24 @@
 }
 
 /* ====================================== */
-/* LISTA DE CANCIONES - GRID 2x3 COMPACTO */
+/* LISTA DE CANCIONES */
 /* ====================================== */
 
 .song-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 12px; /* ← REDUCIDO: era 16px */
+  margin: 0;
   display: grid;
-  gap: 8px; /* ← REDUCIDO: era 12px */
+  gap: 12px;
   grid-template-columns: repeat(2, 1fr);
-  flex: 1;
-  overflow-y: auto; /* ← NUEVO: scroll si es necesario */
-  max-height: 100%;
 }
 
 .song-card {
   display: flex;
   align-items: center;
-  gap: 10px; /* ← REDUCIDO: era 14px */
-  padding: 10px 12px; /* ← REDUCIDO: era 14px 16px */
-  border-radius: 12px;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
   background: rgba(30, 41, 59, 0.65);
   border: 1px solid rgba(148, 163, 184, 0.2);
   box-shadow: 
@@ -184,7 +175,7 @@
 }
 
 .song-card:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.35),
     0 0 20px rgba(var(--accent-rgb, 56, 189, 248), 0.2),
@@ -195,9 +186,9 @@
 
 .song-card-cover {
   flex-shrink: 0;
-  width: 44px; /* ← REDUCIDO: era 56px */
-  height: 44px; /* ← REDUCIDO: era 56px */
-  border-radius: 8px;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.8);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -229,15 +220,14 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   flex: 1;
 }
 
 .song-card-title {
-  font-size: 0.85rem; /* ← REDUCIDO: era 0.96rem */
+  font-size: 0.96rem;
   font-weight: 700;
   color: var(--primary-color);
-  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -245,29 +235,29 @@
 }
 
 .song-card-artist {
-  font-size: 0.78rem; /* ← REDUCIDO: era 0.88rem */
+  font-size: 0.88rem;
   color: var(--secondary-color);
   opacity: 0.95;
   font-weight: 500;
 }
 
 .song-card-album {
-  font-size: 0.72rem; /* ← REDUCIDO: era 0.8rem */
+  font-size: 0.8rem;
   color: var(--secondary-color);
   opacity: 0.7;
 }
 
 /* ====================================== */
-/* BOTÓN OTRA RECOMENDACIÓN */
+/* BOTÓN */
 /* ====================================== */
 
 .another-recommendation {
-  padding: 8px 18px; /* ← REDUCIDO: era 11px 24px */
+  padding: 11px 24px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--accent-color);
   color: #111;
-  font-size: 0.85rem; /* ← REDUCIDO: era 0.95rem */
+  font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 0.84, 0.44, 1);
@@ -275,7 +265,6 @@
     0 4px 14px rgba(var(--accent-rgb, 56, 189, 248), 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   align-self: flex-start;
-  flex-shrink: 0;
 }
 
 .another-recommendation:hover {
@@ -287,21 +276,17 @@
 
 .another-recommendation:active {
   transform: translateY(0);
-  box-shadow: 
-    0 2px 8px rgba(var(--accent-rgb, 56, 189, 248), 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* ====================================== */
-/* SECCIÓN ÁLBUMES - COMPACTA */
+/* SECCIÓN ÁLBUMES */
 /* ====================================== */
 
 .mood-result-albums {
   display: flex;
   flex-direction: column;
-  padding-top: 16px; /* ← REDUCIDO: era 20px */
+  padding-top: 20px;
   border-top: 1px solid rgba(148, 163, 184, 0.15);
-  min-height: 0;
 }
 
 @media (min-width: 900px) {
@@ -309,46 +294,43 @@
     border-top: none;
     border-left: 1px solid rgba(148, 163, 184, 0.15);
     padding-top: 0;
-    padding-left: 20px; /* ← REDUCIDO: era 32px */
+    padding-left: 32px;
   }
 }
 
 .albums-section-title {
-  margin: 0 0 16px; /* ← REDUCIDO: era 24px */
-  font-size: 1rem; /* ← REDUCIDO: era 1.15rem */
+  margin: 0 0 24px;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--primary-color);
   letter-spacing: -0.01em;
-  flex-shrink: 0;
 }
 
 /* ====================================== */
-/* ALBUMS STACK - COMPACTO */
+/* ALBUMS STACK */
 /* ====================================== */
 
 .albums-stack {
   position: relative;
-  height: 240px; /* ← REDUCIDO: era 350px */
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin: 0 auto;
   width: 100%;
-  max-width: 500px; /* ← REDUCIDO: era 600px */
-  flex-shrink: 0;
+  max-width: 550px;
 }
 
 .album-card {
   position: absolute;
-  width: 140px; /* ← REDUCIDO: era 170px */
-  height: 190px; /* ← REDUCIDO: era 230px */
-  border-radius: 14px;
+  width: 170px;
+  height: 230px;
+  border-radius: 16px;
   overflow: hidden;
   transition:
     transform 0.55s cubic-bezier(0.16, 0.84, 0.44, 1),
-    box-shadow 0.55s ease,
-    z-index 0.3s ease;
+    box-shadow 0.55s ease;
   box-shadow: 
     0 20px 45px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -372,12 +354,9 @@
   }
 }
 
-/* ====================================== */
-/* POSICIONES INICIALES - STACK APILADO */
-/* ====================================== */
-
+/* Posiciones iniciales */
 .album-0 {
-  transform: rotate(-14deg) translateX(-35px); /* ← AJUSTADO */
+  transform: rotate(-14deg) translateX(-45px);
   z-index: 1;
 }
 
@@ -387,16 +366,13 @@
 }
 
 .album-2 {
-  transform: rotate(14deg) translateX(35px); /* ← AJUSTADO */
+  transform: rotate(14deg) translateX(45px);
   z-index: 2;
 }
 
-/* ====================================== */
-/* HOVER - SEPARACIÓN COMPLETA */
-/* ====================================== */
-
+/* Hover - separación completa */
 .albums-stack:hover .album-0 {
-  transform: translateX(-160px) rotate(-2deg); /* ← AJUSTADO: era -195px */
+  transform: translateX(-185px) rotate(-2deg);
   z-index: 2;
   box-shadow: 
     0 25px 55px rgba(0, 0, 0, 0.7),
@@ -412,17 +388,14 @@
 }
 
 .albums-stack:hover .album-2 {
-  transform: translateX(160px) rotate(2deg); /* ← AJUSTADO: era 195px */
+  transform: translateX(185px) rotate(2deg);
   z-index: 2;
   box-shadow: 
     0 25px 55px rgba(0, 0, 0, 0.7),
     0 0 25px rgba(var(--accent-rgb, 56, 189, 248), 0.3);
 }
 
-/* ====================================== */
-/* CONTENIDO DEL ÁLBUM */
-/* ====================================== */
-
+/* Contenido del álbum */
 .album-card img {
   width: 100%;
   height: 100%;
@@ -438,7 +411,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 10px 12px; /* ← REDUCIDO: era 12px 14px */
+  padding: 12px 14px;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.85) 0%,
@@ -448,48 +421,38 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  transition: background 0.3s ease;
-}
-
-.albums-stack:hover .album-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.6) 60%,
-    transparent 100%
-  );
 }
 
 .album-overlay .album-card-title {
-  font-size: 0.8rem; /* ← REDUCIDO: era 0.9rem */
+  font-size: 0.9rem;
   font-weight: 700;
   color: #fff;
   line-height: 1.3;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   letter-spacing: -0.01em;
 }
 
 .album-overlay .album-card-artist {
-  font-size: 0.7rem; /* ← REDUCIDO: era 0.78rem */
+  font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
 }
 
 /* ====================================== */
-/* ERROR STATE */
+/* ERROR */
 /* ====================================== */
 
 .error {
   color: #fecaca;
   font-weight: 600;
-  padding: 14px 18px;
-  border-radius: 10px;
+  padding: 16px 20px;
+  border-radius: 12px;
   background: rgba(239, 68, 68, 0.12);
   border: 1px solid rgba(239, 68, 68, 0.35);
 }
 
 /* ====================================== */
-/* RESPONSIVE: TABLET */
+/* RESPONSIVE */
 /* ====================================== */
 
 @media (max-width: 900px) {
@@ -498,13 +461,48 @@
   }
 
   .albums-stack {
-    max-width: 350px;
-    height: 220px;
+    max-width: 400px;
   }
 
   .album-card {
-    width: 120px;
-    height: 170px;
+    width: 150px;
+    height: 200px;
+  }
+
+  .albums-stack:hover .album-0 {
+    transform: translateX(-160px) rotate(-2deg);
+  }
+
+  .albums-stack:hover .album-2 {
+    transform: translateX(160px) rotate(2deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .mood-result {
+    padding: 24px 20px;
+  }
+
+  .mood-heading-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .albums-stack {
+    height: 260px;
+    max-width: 320px;
+  }
+
+  .album-card {
+    width: 130px;
+    height: 180px;
+  }
+
+  .album-0 {
+    transform: rotate(-12deg) translateX(-35px);
+  }
+
+  .album-2 {
+    transform: rotate(12deg) translateX(35px);
   }
 
   .albums-stack:hover .album-0 {
@@ -513,45 +511,5 @@
 
   .albums-stack:hover .album-2 {
     transform: translateX(135px) rotate(2deg);
-  }
-}
-
-/* ====================================== */
-/* RESPONSIVE: MOBILE */
-/* ====================================== */
-
-@media (max-width: 640px) {
-  .mood-result {
-    padding: 18px 16px;
-  }
-
-  .mood-heading-text h2 {
-    font-size: 1.2rem;
-  }
-
-  .albums-stack {
-    height: 200px;
-    max-width: 280px;
-  }
-
-  .album-card {
-    width: 110px;
-    height: 150px;
-  }
-
-  .album-0 {
-    transform: rotate(-12deg) translateX(-30px);
-  }
-
-  .album-2 {
-    transform: rotate(12deg) translateX(30px);
-  }
-
-  .albums-stack:hover .album-0 {
-    transform: translateX(-120px) rotate(-2deg);
-  }
-
-  .albums-stack:hover .album-2 {
-    transform: translateX(120px) rotate(2deg);
   }
 }
