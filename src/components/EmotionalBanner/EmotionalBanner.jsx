@@ -3,32 +3,32 @@ import "./EmotionalBanner.css";
 const bannerContent = {
   happy: {
     title: "Seguí brillando",
-    message: "Tu energía positiva es contagiosa. Disfrutá este momento.",
+    message: "Tu energía es contagiosa",
     emoji: "✨"
   },
   sad: {
     title: "Está bien sentirse así",
-    message: "Las emociones pasan. No estás solo en esto.",
+    message: "No estás solo",
     emoji: "🌙"
   },
   energetic: {
     title: "Imparable",
-    message: "Canalizá toda esa energía en algo que te apasione.",
+    message: "Canalizá esa energía",
     emoji: "⚡"
   },
   chill: {
     title: "Respirá profundo",
-    message: "Este es tu momento de paz. Disfrutalo.",
+    message: "Tu momento de paz",
     emoji: "🌿"
   },
   angry: {
     title: "Es válido sentir esto",
-    message: "Dejá que la música te ayude a procesar.",
+    message: "Dejá que la música ayude",
     emoji: "🔥"
   },
   tired: {
     title: "Descansá",
-    message: "Tu cuerpo te está pidiendo pausa. Escuchalo.",
+    message: "Tu cuerpo pide pausa",
     emoji: "💤"
   }
 };
@@ -41,7 +41,8 @@ function EmotionalBanner({ mood }) {
   return (
     <div className="emotional-banner">
       <div className="emotional-banner-content">
-        <span className="emotional-banner-emoji">{content.emoji}</span>
+        {/* Placeholder for future mood image */}
+        <div className="emotional-banner-image-placeholder" />
         <h2 className="emotional-banner-title">{content.title}</h2>
         <p className="emotional-banner-message">{content.message}</p>
       </div>

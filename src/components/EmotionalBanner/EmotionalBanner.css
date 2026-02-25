@@ -40,21 +40,15 @@
     align-items: center;
     gap: 16px;
   }
-  
-  .emotional-banner-emoji {
-    font-size: 4rem;
-    line-height: 1;
-    filter: drop-shadow(0 0 20px rgba(var(--accent-rgb, 56, 189, 248), 0.4));
-    animation: emoji-float 3s ease-in-out infinite;
-  }
-  
-  @keyframes emoji-float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+
+  /* Placeholder for future mood image */
+  .emotional-banner-image-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    flex-shrink: 0;
   }
   
   .emotional-banner-title {
@@ -91,33 +85,37 @@
       padding: 60px 32px;
       margin-top: 32px;
     }
-  
-    .emotional-banner-emoji {
-      font-size: 3rem;
+
+    .emotional-banner-image-placeholder {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
     }
-  
+
     .emotional-banner-title {
       font-size: 2rem;
     }
-  
+
     .emotional-banner-message {
       font-size: 1rem;
     }
   }
-  
+
   @media (max-width: 640px) {
     .emotional-banner {
       padding: 48px 24px;
     }
-  
-    .emotional-banner-emoji {
-      font-size: 2.5rem;
+
+    .emotional-banner-image-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
     }
-  
+
     .emotional-banner-title {
       font-size: 1.6rem;
     }
-  
+
     .emotional-banner-message {
       font-size: 0.95rem;
     }
