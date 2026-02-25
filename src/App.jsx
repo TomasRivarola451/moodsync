@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout/Layout";
 import MoodInput from "./components/MoodInput/MoodInput";
+import MoodResultHeader from "./components/MoodResultHeader/MoodResultHeader";
 import MoodResult from "./components/MoodResult/MoodResult";
 import MoodParticles from "./components/MoodParticles/MoodParticles";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
@@ -73,14 +74,14 @@ function App() {
       {/* Layout principal */}
       <Layout hasDetectedMood={hasDetectedMood}>
         {/* Input: compacto si ya hay mood, hero si no */}
-        <MoodInput 
-          onSubmit={handleMoodSubmit} 
+        <MoodInput
+          onSubmit={handleMoodSubmit}
           loading={loading}
           mood={mood}
           isCompact={hasDetectedMood}
           onChangeMood={handleChangeMood}
         />
-        
+
         {loading && (
           <div className="loading-indicator">
             <span className="loading-dot" />
@@ -93,13 +94,14 @@ function App() {
         {/* Resultado: solo visible cuando hay mood */}
         {hasDetectedMood && (
           <>
-            <MoodResult
+            <MoodResultHeader
               mood={mood}
               variant={variant}
-              reason={reason}
               message={message}
-              error={error}
+              reason={reason}
             />
+
+            <MoodResult mood={mood} error={error} />
 
             {/* Banner emocional final */}
             <EmotionalBanner mood={mood} />

@@ -16,7 +16,7 @@ function getRandomSongs(songs, count) {
   return copy.slice(0, Math.min(count, copy.length));
 }
 
-function MoodResult({ mood, variant, reason, message, error }) {
+function MoodResult({ mood, error }) {
   const [seed, setSeed] = useState(0);
 
   const hasApiMood = Boolean(mood);
@@ -30,11 +30,11 @@ function MoodResult({ mood, variant, reason, message, error }) {
     }
   }, [hasApiMood, normalizedMood]);
 
-  // CAMBIO PRINCIPAL: 7 → 6 canciones
+  // 8 canciones para un grid 2x4
   const songs = useMemo(
     () =>
       moodData && Array.isArray(moodData.songs)
-        ? getRandomSongs(moodData.songs, 6) // ← CAMBIADO DE 7 A 6
+        ? getRandomSongs(moodData.songs, 8)
         : [],
     [moodData, seed]
   );
@@ -58,92 +58,60 @@ function MoodResult({ mood, variant, reason, message, error }) {
 
   return (
     <div className="mood-result">
-      {moodData ? (
-        <div className="mood-header">
-          <div className="mood-heading">
-            <div className="mood-heading-text">
-              <h2>{moodData.title}</h2>
-              <p className="mood-main-line">
-                Parece que estás {moodData.label}
-                {variant ? ` (${variant})` : ""}
-              </p>
-            </div>
-          </div>
+      {hasSongs && (
+        <section className="songs-section">
+          <header className="songs-section-header">
+            <p className="songs-section-kicker">Selección generada por IA</p>
+            <h2 className="songs-section-title">TRACKS SUGERIDOS</h2>
+            <p className="songs-section-subtitle">
+              Una mezcla de temas pensados para acompañar este momento
+              emocional.
+            </p>
+          </header>
 
-          {message && <p className="mood-message">{message}</p>}
-          {reason && <p className="mood-reason">{reason}</p>}
-          {!message && moodData.description && (
-            <p className="mood-description">{moodData.description}</p>
-          )}
-          {moodData.quote && (
-            <p className="mood-quote">"{moodData.quote}"</p>
-          )}
-        </div>
-      ) : (
-        <h2>Estado detectado: {normalizedMood || mood}</h2>
+          <ul className="song-list">
+            {songs.map((song, index) => (
+              <li
+                key={`${song.title}-${song.artist}-${index}`}
+                className="song-card"
+              >
+                <div className="song-card-cover">
+                  {song.cover || song.image ? (
+                    <img
+                      src={song.cover || song.image}
+                      alt=""
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="song-card-cover-placeholder" />
+                  )}
+                </div>
+
+                <div className="song-card-info">
+                  <strong className="song-card-title">{song.title}</strong>
+                  <span className="song-card-artist">{song.artist}</span>
+                  {song.album && (
+                    <span className="song-card-album">{song.album}</span>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            className="another-recommendation"
+            onClick={handleAnotherRecommendation}
+          >
+            Otra recomendación
+          </button>
+        </section>
       )}
 
-      {hasSongs || hasAlbums ? (
-        <div className="mood-result-content">
-          <div className="mood-result-songs">
-            {hasSongs ? (
-              <>
-                <ul className="song-list">
-                  {songs.map((song, index) => (
-                    <li
-                      key={`${song.title}-${song.artist}-${index}`}
-                      className="song-card"
-                    >
-                      <div className="song-card-cover">
-                        {song.cover || song.image ? (
-                          <img
-                            src={song.cover || song.image}
-                            alt=""
-                            loading="lazy"
-                          />
-                        ) : (
-                          <span className="song-card-cover-placeholder" />
-                        )}
-                      </div>
-
-                      <div className="song-card-info">
-                        <strong className="song-card-title">
-                          {song.title}
-                        </strong>
-                        <span className="song-card-artist">
-                          {song.artist}
-                        </span>
-                        {song.album && (
-                          <span className="song-card-album">
-                            {song.album}
-                          </span>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  type="button"
-                  className="another-recommendation"
-                  onClick={handleAnotherRecommendation}
-                >
-                  Otra recomendación
-                </button>
-              </>
-            ) : (
-              <p className="mood-result-empty">
-                Todavía no hay canciones para este estado.
-              </p>
-            )}
-          </div>
-
-          {hasAlbums && (
-            <aside className="mood-result-albums">
-              <h3 className="albums-section-title">
-                Álbumes recomendados
-              </h3>
-
+      {hasAlbums && (
+        <section className="albums-section">
+          <div className="albums-container">
+            <div className="albums-stack-wrapper">
               <div className="albums-stack">
                 {moodData.albums.slice(0, 3).map((album, index) => (
                   <div
@@ -171,10 +139,26 @@ function MoodResult({ mood, variant, reason, message, error }) {
                   </div>
                 ))}
               </div>
-            </aside>
-          )}
-        </div>
-      ) : (
+            </div>
+
+            <div className="albums-info">
+              <h2 className="albums-info-title">ÁLBUMES RECOMENDADOS</h2>
+              <p className="albums-description">
+                Explorá álbumes completos curados especialmente según tu estado
+                emocional. Ideal para poner de fondo y dejar que la experiencia
+                fluya de principio a fin.
+              </p>
+              <ul className="albums-features">
+                <li>Curación personalizada por IA según tu mood.</li>
+                <li>Experiencia de escucha continua, sin saltar de tema.</li>
+                <li>Descubrí artistas y discos que pueden marcarte.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!hasSongs && !hasAlbums && (
         <p className="mood-result-empty">
           Todavía no hay canciones para este estado.
         </p>
