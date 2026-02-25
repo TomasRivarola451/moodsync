@@ -1,47 +1,46 @@
+/* ====================================== */
+/* MOOD INPUT - HERO + COMPACT */
+/* ====================================== */
+
 .mood-input-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  animation: fade-slide-down 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
+  max-width: 650px;
+  margin: 0 auto;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fade-slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Estado compact: menos espacio */
+.mood-input-container--compact {
+  max-width: 100%;
 }
 
 .mood-input-card {
-  width: 100%;
-  max-width: 650px;
-  padding: 28px 32px;
-  border-radius: 20px;
+  padding: 32px;
+  border-radius: 24px;
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(148, 163, 184, 0.3);
   box-shadow: 
-    0 20px 50px rgba(15, 23, 42, 0.7),
+    0 20px 60px rgba(15, 23, 42, 0.7),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(24px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(32px);
+  transition: padding 0.6s ease;
 }
 
-.mood-input-card:hover {
-  border-color: rgba(148, 163, 184, 0.4);
-  box-shadow: 
-    0 24px 60px rgba(15, 23, 42, 0.8),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+/* Compact: menos padding */
+.mood-input-container--compact .mood-input-card {
+  padding: 20px 28px;
 }
 
-/* Título con gradient text */
+/* ====================================== */
+/* MODO HERO (estado inicial) */
+/* ====================================== */
+
 .mood-input-title {
-  margin: 0 0 8px;
-  font-size: 1.8rem;
+  margin: 0 0 12px;
+  font-size: 2rem;
   font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.02em;
   background: linear-gradient(
     135deg,
     var(--primary-color) 0%,
@@ -50,36 +49,43 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.02em;
+  animation: title-glow 3s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(var(--accent-rgb, 56, 189, 248), 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(var(--accent-rgb, 56, 189, 248), 0.5);
+  }
 }
 
 .mood-input-subtitle {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   font-size: 0.95rem;
+  text-align: center;
   color: var(--secondary-color);
   opacity: 0.9;
+  line-height: 1.5;
 }
 
-/* Input wrapper */
 .mood-input-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 12px;
-  align-items: stretch;
 }
 
-/* Input field mejorado */
 .mood-input-field {
-  flex: 1;
+  width: 100%;
   padding: 14px 20px;
   border-radius: 12px;
+  background: rgba(30, 41, 59, 0.7);
   border: 1px solid rgba(148, 163, 184, 0.25);
-  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
   color: var(--primary-color);
   font-size: 0.95rem;
-  font-family: inherit;
-  outline: none;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 .mood-input-field::placeholder {
@@ -88,48 +94,99 @@
 }
 
 .mood-input-field:focus {
-  border-color: var(--accent-color);
-  background: rgba(30, 41, 59, 0.8);
-  box-shadow: 
-    0 0 0 3px rgba(var(--accent-rgb, 56, 189, 248), 0.15),
-    0 8px 20px rgba(0, 0, 0, 0.3);
+  outline: none;
+  border-color: rgba(var(--accent-rgb, 56, 189, 248), 0.6);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb, 56, 189, 248), 0.15);
 }
 
-/* Botón submit mejorado */
+.mood-input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .mood-input-submit {
   padding: 14px 28px;
-  border: none;
   border-radius: 12px;
+  border: none;
   background: var(--accent-color);
-  color: #111;
+  color: #0a0f19;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 4px 14px rgba(var(--accent-rgb, 56, 189, 248), 0.4),
+    0 4px 16px rgba(var(--accent-rgb, 56, 189, 248), 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
 }
 
-.mood-input-submit:hover {
+.mood-input-submit:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 
-    0 6px 20px rgba(var(--accent-rgb, 56, 189, 248), 0.5),
+    0 8px 24px rgba(var(--accent-rgb, 56, 189, 248), 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.mood-input-submit:active {
+.mood-input-submit:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 
-    0 2px 8px rgba(var(--accent-rgb, 56, 189, 248), 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .mood-input-submit:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
+}
+
+/* ====================================== */
+/* MODO COMPACT (cuando ya hay mood) */
+/* ====================================== */
+
+.mood-input-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mood-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.mood-badge-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.mood-badge-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: capitalize;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(var(--accent-rgb, 56, 189, 248), 0.15);
+  border: 1px solid rgba(var(--accent-rgb, 56, 189, 248), 0.3);
+}
+
+.mood-change-button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(30, 41, 59, 0.5);
+  color: var(--primary-color);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.mood-change-button:hover {
+  background: rgba(51, 65, 85, 0.6);
+  border-color: rgba(var(--accent-rgb, 56, 189, 248), 0.4);
+  transform: translateY(-1px);
 }
 
 /* ====================================== */
@@ -139,51 +196,30 @@
 @media (max-width: 640px) {
   .mood-input-card {
     padding: 24px 20px;
-    max-width: 100%;
+  }
+  
+  .mood-input-container--compact .mood-input-card {
+    padding: 16px 18px;
   }
 
   .mood-input-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .mood-input-subtitle {
+    font-size: 0.88rem;
   }
 
   .mood-input-wrapper {
-    flex-direction: column;
     gap: 10px;
   }
 
-  .mood-input-submit {
-    width: 100%;
+  .mood-input-compact {
+    flex-direction: column;
+    align-items: stretch;
   }
-}
 
-/* ====================================== */
-/* VARIABLES RGB POR TEMA */
-/* ====================================== */
-
-[data-theme="happy"] {
-  --accent-rgb: 34, 197, 94;
-}
-
-[data-theme="sad"] {
-  --accent-rgb: 56, 189, 248;
-}
-
-[data-theme="energetic"] {
-  --accent-rgb: 249, 115, 22;
-}
-
-[data-theme="chill"] {
-  --accent-rgb: 167, 139, 250;
-}
-
-[data-theme="angry"] {
-  --accent-rgb: 239, 68, 68;
-}
-
-[data-theme="tired"] {
-  --accent-rgb: 100, 116, 139;
-}
-
-[data-theme="neutral"] {
-  --accent-rgb: 56, 189, 248;
+  .mood-badge {
+    justify-content: center;
+  }
 }

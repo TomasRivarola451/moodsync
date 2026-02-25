@@ -1,16 +1,13 @@
 import "./Layout.css";
 
-function Layout({ children }) {
+function Layout({ children, hasDetectedMood }) {
   return (
-    <main className="app-layout">
-      {/* Capa atmosférica dinámica */}
+    <div className={`app-layout ${hasDetectedMood ? "app-layout--has-results" : ""}`}>
       <div className="aura-layer" />
-
-      {/* Contenido principal */}
       <div className="app-layout-inner">
         {children}
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -5,6 +5,7 @@ import MoodResult from "./components/MoodResult/MoodResult";
 import MoodParticles from "./components/MoodParticles/MoodParticles";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import AudioToggleButton from "./components/AudioToggleButton/AudioToggleButton";
+import EmotionalBanner from "./components/EmotionalBanner/EmotionalBanner";
 import { EmotionalAudioProvider } from "./audio/EmotionalAudioProvider";
 import { getMoodFromText } from "./services/aiService";
 import "./App.css";
@@ -16,6 +17,9 @@ function App() {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  // Estado visual: si ya hubo detección o no
+  const hasDetectedMood = mood !== null;
 
   // Actualizar tema según mood
   useEffect(() => {
@@ -49,8 +53,17 @@ function App() {
     }
   };
 
+  const handleChangeMood = () => {
+    // Reset para volver al estado inicial
+    setMood(null);
+    setVariant(null);
+    setReason(null);
+    setMessage(null);
+    setError(null);
+  };
+
   return (
-    <EmotionalAudioProvider mood={mood}> {/* ← CAMBIO: mood en vez de normalizedMood */}
+    <EmotionalAudioProvider mood={mood}>
       {/* Background animado */}
       <AnimatedBackground mood={mood} />
       
@@ -58,8 +71,15 @@ function App() {
       {mood && <MoodParticles mood={mood} />}
 
       {/* Layout principal */}
-      <Layout>
-        <MoodInput onSubmit={handleMoodSubmit} loading={loading} />
+      <Layout hasDetectedMood={hasDetectedMood}>
+        {/* Input: compacto si ya hay mood, hero si no */}
+        <MoodInput 
+          onSubmit={handleMoodSubmit} 
+          loading={loading}
+          mood={mood}
+          isCompact={hasDetectedMood}
+          onChangeMood={handleChangeMood}
+        />
         
         {loading && (
           <div className="loading-indicator">
@@ -70,13 +90,21 @@ function App() {
           </div>
         )}
 
-        <MoodResult
-          mood={mood}
-          variant={variant}
-          reason={reason}
-          message={message}
-          error={error}
-        />
+        {/* Resultado: solo visible cuando hay mood */}
+        {hasDetectedMood && (
+          <>
+            <MoodResult
+              mood={mood}
+              variant={variant}
+              reason={reason}
+              message={message}
+              error={error}
+            />
+
+            {/* Banner emocional final */}
+            <EmotionalBanner mood={mood} />
+          </>
+        )}
       </Layout>
 
       {/* Botón de audio toggle */}

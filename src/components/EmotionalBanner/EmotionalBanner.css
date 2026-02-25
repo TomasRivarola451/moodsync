@@ -1,0 +1,124 @@
+/* ====================================== */
+/* EMOTIONAL BANNER - CIERRE VISUAL */
+/* ====================================== */
+
+.emotional-banner {
+    width: 100%;
+    margin-top: 48px;
+    padding: 80px 40px;
+    border-radius: 24px;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--accent-rgb, 56, 189, 248), 0.1) 0%,
+      rgba(15, 23, 42, 0.8) 100%
+    );
+    border: 1px solid rgba(var(--accent-rgb, 56, 189, 248), 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+      0 24px 60px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: banner-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
+  }
+  
+  @keyframes banner-appear {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .emotional-banner-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .emotional-banner-emoji {
+    font-size: 4rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 20px rgba(var(--accent-rgb, 56, 189, 248), 0.4));
+    animation: emoji-float 3s ease-in-out infinite;
+  }
+  
+  @keyframes emoji-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .emotional-banner-title {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(
+      135deg,
+      var(--primary-color) 0%,
+      var(--accent-color) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(var(--accent-rgb, 56, 189, 248), 0.3);
+  }
+  
+  .emotional-banner-message {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--secondary-color);
+    opacity: 0.95;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+  
+  /* ====================================== */
+  /* RESPONSIVE */
+  /* ====================================== */
+  
+  @media (max-width: 768px) {
+    .emotional-banner {
+      padding: 60px 32px;
+      margin-top: 32px;
+    }
+  
+    .emotional-banner-emoji {
+      font-size: 3rem;
+    }
+  
+    .emotional-banner-title {
+      font-size: 2rem;
+    }
+  
+    .emotional-banner-message {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .emotional-banner {
+      padding: 48px 24px;
+    }
+  
+    .emotional-banner-emoji {
+      font-size: 2.5rem;
+    }
+  
+    .emotional-banner-title {
+      font-size: 1.6rem;
+    }
+  
+    .emotional-banner-message {
+      font-size: 0.95rem;
+    }
+  }
