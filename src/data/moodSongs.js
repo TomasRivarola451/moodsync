@@ -1,6 +1,5 @@
 export const moodSongs = {
   happy: {
-    emoji: "😊",
     label: "contento",
     title: "Energía positiva al máximo",
     description: "Subí el volumen y dejate llevar por el buen ánimo.",
@@ -32,7 +31,6 @@ export const moodSongs = {
     ]
   },
   sad: {
-    emoji: "😔",
     label: "bajón",
     title: "Para días grises",
     description: "Canciones para acompañarte y levantar de a poco.",
@@ -64,7 +62,6 @@ export const moodSongs = {
     ]
   },
   chill: {
-    emoji: "😌",
     label: "tranqui",
     title: "Para relajar la mente",
     description: "Sonidos suaves para bajar revoluciones y respirar profundo.",
@@ -96,7 +93,6 @@ export const moodSongs = {
     ]
   },
   energetic: {
-    emoji: "🔥",
     label: "a full",
     title: "Para activarte al 100%",
     description: "Temas que te empujan a moverte, entrenar o arrancar el día.",
@@ -128,7 +124,6 @@ export const moodSongs = {
     ]
   },
   angry: {
-    emoji: "😡",
     label: "con bronca",
     title: "Para soltar la bronca",
     description: "Temas intensos para descargar energía sin guardarte nada.",
@@ -160,7 +155,6 @@ export const moodSongs = {
     ]
   },
   neutral: {
-    emoji: "😶",
     label: "neutro",
     title: "Para acompañar el momento",
     description: "Música tranquila para esos días que no son ni muy arriba ni muy abajo.",
@@ -192,7 +186,6 @@ export const moodSongs = {
     ]
   },
   tired: {
-    emoji: "🥱",
     label: "agotado",
     title: "Para descansar la cabeza",
     description: "Música suave para cerrar el día y soltar tensiones.",

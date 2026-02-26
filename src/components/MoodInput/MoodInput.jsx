@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from "../Logo/Logo";
 import "./MoodInput.css";
 
 function MoodInput({ onSubmit, loading, mood, isCompact, onChangeMood }) {
@@ -17,6 +18,7 @@ function MoodInput({ onSubmit, loading, mood, isCompact, onChangeMood }) {
         {!isCompact ? (
           // MODO HERO: Estado inicial sin mood
           <>
+            <Logo mood={mood} size="medium" />
             <h1 className="mood-input-title">¿Cómo te sentís hoy?</h1>
             <p className="mood-input-subtitle">
               Escribí cómo te sentís y te recomendamos música para acompañarte.

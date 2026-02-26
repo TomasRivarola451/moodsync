@@ -1,0 +1,81 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: logo-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
+  color: var(--logo-color);
+}
+
+@keyframes logo-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logo-icon {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 22px rgba(20, 184, 166, 0.45));
+}
+
+.logo-text {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    var(--logo-color),
+    rgba(226, 232, 240, 0.95)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Size variants */
+.logo-small .logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-small .logo-text {
+  font-size: 1rem;
+}
+
+.logo-medium .logo-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.logo-medium .logo-text {
+  font-size: 1.5rem;
+}
+
+.logo-large .logo-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.logo-large .logo-text {
+  font-size: 2rem;
+}
+
+@media (max-width: 640px) {
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+}
+

@@ -7,6 +7,7 @@ import MoodParticles from "./components/MoodParticles/MoodParticles";
 import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 import AudioToggleButton from "./components/AudioToggleButton/AudioToggleButton";
 import EmotionalBanner from "./components/EmotionalBanner/EmotionalBanner";
+import FloatingLines from "./components/FloatingLines/FloatingLines";
 import { EmotionalAudioProvider } from "./audio/EmotionalAudioProvider";
 import { getMoodFromText } from "./services/aiService";
 import "./App.css";
@@ -21,6 +22,73 @@ function App() {
 
   // Estado visual: si ya hubo detección o no
   const hasDetectedMood = mood !== null;
+
+  const getFloatingLinesConfig = (currentMood) => {
+    const configs = {
+      neutral: {
+        linesGradient: ["#14b8a6", "#0d9488", "#0f766e"],
+        lineCount: 4,
+        animationSpeed: 0.6,
+        enabledWaves: ["bottom", "middle"],
+      },
+      happy: {
+        linesGradient: ["#22c55e", "#16a34a", "#15803d"],
+        lineCount: 5,
+        animationSpeed: 0.8,
+        enabledWaves: ["bottom", "middle"],
+      },
+      sad: {
+        linesGradient: ["#3b82f6", "#2563eb", "#1d4ed8"],
+        lineCount: 3,
+        animationSpeed: 0.4,
+        enabledWaves: ["bottom", "middle"],
+      },
+      energetic: {
+        linesGradient: ["#f97316", "#ea580c", "#c2410c"],
+        lineCount: 6,
+        animationSpeed: 1.2,
+        enabledWaves: ["top", "middle", "bottom"],
+      },
+      chill: {
+        linesGradient: ["#a78bfa", "#8b5cf6", "#7c3aed"],
+        lineCount: 3,
+        animationSpeed: 0.3,
+        enabledWaves: ["bottom", "middle"],
+      },
+      angry: {
+        linesGradient: ["#ef4444", "#dc2626", "#b91c1c"],
+        lineCount: 5,
+        animationSpeed: 1.0,
+        bendStrength: -0.8,
+        enabledWaves: ["bottom", "middle"],
+      },
+      tired: {
+        linesGradient: ["#64748b", "#475569", "#334155"],
+        lineCount: 2,
+        animationSpeed: 0.2,
+        enabledWaves: ["bottom"],
+      },
+    };
+
+    const baseConfig = {
+      lineDistance: 6,
+      interactive: true,
+      bendRadius: 5,
+      bendStrength: -0.3,
+      mouseDamping: 0.08,
+      parallax: true,
+      parallaxStrength: 0.15,
+      mixBlendMode: "screen",
+    };
+
+    const moodKey = currentMood || "neutral";
+
+    return {
+      ...baseConfig,
+      ...configs.neutral,
+      ...configs[moodKey],
+    };
+  };
 
   // Actualizar tema según mood
   useEffect(() => {
@@ -65,6 +133,10 @@ function App() {
 
   return (
     <EmotionalAudioProvider mood={mood}>
+      <div className="floating-lines-background">
+        <FloatingLines config={getFloatingLinesConfig(mood)} />
+      </div>
+
       {/* Background animado */}
       <AnimatedBackground mood={mood} />
       

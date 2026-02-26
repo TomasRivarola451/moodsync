@@ -1,6 +1,7 @@
 import "./MoodResultHeader.css";
 import { moodSongs } from "../../data/moodSongs";
 import { normalizeMood } from "../../services/moodAI";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 function MoodResultHeader({ mood, variant, message, reason }) {
   if (!mood) return null;
@@ -20,8 +21,15 @@ function MoodResultHeader({ mood, variant, message, reason }) {
   const displayReason = reason;
   const quote = moodData?.quote;
 
+  const [ref, isVisible] = useIntersectionObserver();
+
   return (
-    <section className="mood-result-header">
+    <section
+      ref={ref}
+      className={`mood-result-header scroll-fade-section ${
+        isVisible ? "fade-in-up" : ""
+      }`}
+    >
       <div className="mood-result-header-card accent-glow">
         <div className="mood-result-header-top">
           <p className="mood-result-header-kicker">

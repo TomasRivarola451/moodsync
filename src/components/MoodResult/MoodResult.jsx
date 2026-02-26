@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { moodSongs } from "../../data/moodSongs";
 import { normalizeMood } from "../../services/moodAI";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 import "./MoodResult.css";
 
 function getRandomSongs(songs, count) {
@@ -23,6 +24,9 @@ function MoodResult({ mood, error }) {
   const normalizedMood = hasApiMood ? normalizeMood(mood) : null;
   const moodData =
     hasApiMood && normalizedMood ? moodSongs[normalizedMood] || null : null;
+
+  const [songsRef, songsVisible] = useIntersectionObserver();
+  const [albumsRef, albumsVisible] = useIntersectionObserver();
 
   useEffect(() => {
     if (hasApiMood) {
@@ -59,7 +63,12 @@ function MoodResult({ mood, error }) {
   return (
     <div className="mood-result">
       {hasSongs && (
-        <section className="songs-section">
+        <section
+          ref={songsRef}
+          className={`songs-section scroll-fade-section ${
+            songsVisible ? "fade-in-up" : ""
+          }`}
+        >
           <header className="songs-section-header">
             <p className="songs-section-kicker">Selección generada por IA</p>
             <h2 className="songs-section-title">TRACKS SUGERIDOS</h2>
@@ -109,7 +118,12 @@ function MoodResult({ mood, error }) {
       )}
 
       {hasAlbums && (
-        <section className="albums-section">
+        <section
+          ref={albumsRef}
+          className={`albums-section scroll-fade-section ${
+            albumsVisible ? "fade-in-up" : ""
+          }`}
+        >
           <div className="albums-container">
             <div className="albums-stack-wrapper">
               <div className="albums-stack">
