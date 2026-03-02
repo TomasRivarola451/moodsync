@@ -5,8 +5,8 @@
 }
 
 body {
-  background: #0a0f19;
-  background-color: #0a0f19;
+  background: #0a0f19 !important;
+  background-color: #0a0f19 !important;
   color: var(--text-color);
   font-family: var(--font-main);
   min-height: 100vh;
