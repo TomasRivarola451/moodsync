@@ -8,7 +8,7 @@ import "./FloatingLines.css";
  * with your own implementation if desired.
  */
 
-function FloatingLines({ config }) {
+function FloatingLines(props) {
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
 
@@ -30,8 +30,8 @@ function FloatingLines({ config }) {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    if (config?.mixBlendMode) {
-      renderer.domElement.style.mixBlendMode = config.mixBlendMode;
+    if (props?.mixBlendMode) {
+      renderer.domElement.style.mixBlendMode = props.mixBlendMode;
     }
 
     container.innerHTML = "";
@@ -43,12 +43,13 @@ function FloatingLines({ config }) {
       linesGradient = ["#14b8a6", "#0d9488", "#0f766e"],
       lineCount = 4,
       lineDistance = 6,
+      enabledWaves = ["bottom", "middle"],
       animationSpeed = 0.6,
       parallax = true,
       parallaxStrength = 0.15,
       interactive = true,
       mouseDamping = 0.08,
-    } = config || {};
+    } = props || {};
 
     const lines = [];
     const group = new THREE.Group();
@@ -56,29 +57,60 @@ function FloatingLines({ config }) {
 
     const colorStops = linesGradient.map((c) => new THREE.Color(c));
 
-    for (let i = 0; i < lineCount; i += 1) {
-      const points = [];
-      const segments = 200;
-      const y = (i - (lineCount - 1) / 2) * lineDistance;
+    const waves = Array.isArray(enabledWaves) && enabledWaves.length
+      ? enabledWaves
+      : ["bottom"];
 
-      for (let j = 0; j <= segments; j += 1) {
-        const x = ((j / segments) - 0.5) * 40;
-        const z = 0;
-        points.push(new THREE.Vector3(x, y, z));
+    const lineCountArray = Array.isArray(lineCount)
+      ? lineCount
+      : waves.map(() => lineCount);
+
+    const lineDistanceArray = Array.isArray(lineDistance)
+      ? lineDistance
+      : waves.map(() => lineDistance);
+
+    const waveCenters = {
+      bottom: -5,
+      middle: 0,
+      top: 5,
+    };
+
+    waves.forEach((waveName, waveIndex) => {
+      const countForWave = lineCountArray[waveIndex] ?? lineCountArray[0] ?? 0;
+      const distanceForWave =
+        lineDistanceArray[waveIndex] ?? lineDistanceArray[0] ?? 6;
+      const centerY = waveCenters[waveName] ?? 0;
+
+      for (let i = 0; i < countForWave; i += 1) {
+        const points = [];
+        const segments = 200;
+        const offsetIndex = i - (countForWave - 1) / 2;
+        const y = centerY + offsetIndex * distanceForWave;
+
+        for (let j = 0; j <= segments; j += 1) {
+          const x = ((j / segments) - 0.5) * 40;
+          const z = 0;
+          points.push(new THREE.Vector3(x, y, z));
+        }
+
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const material = new THREE.LineBasicMaterial({
+          color: colorStops[(waveIndex + i) % colorStops.length],
+          transparent: true,
+          opacity: 0.8,
+          linewidth: 1.5,
+        });
+
+        const line = new THREE.Line(geometry, material);
+        group.add(line);
+        lines.push({
+          line,
+          baseY: y,
+          phase: Math.random() * Math.PI * 2,
+          waveIndex,
+        });
       }
-
-      const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const material = new THREE.LineBasicMaterial({
-        color: colorStops[i % colorStops.length],
-        transparent: true,
-        opacity: 0.7,
-        linewidth: 1.5,
-      });
-
-      const line = new THREE.Line(geometry, material);
-      group.add(line);
-      lines.push({ line, baseY: y, phase: Math.random() * Math.PI * 2 });
-    }
+    });
 
     let mouseX = 0;
     let mouseY = 0;
@@ -122,10 +154,10 @@ function FloatingLines({ config }) {
         group.position.y = mouseY * parallaxStrength * -6;
       }
 
-      lines.forEach(({ line, baseY, phase }, index) => {
+      lines.forEach(({ line, baseY, phase, waveIndex }, index) => {
         const position = line.geometry.attributes.position;
         const len = position.count;
-        const waveOffset = index * 0.5;
+        const waveOffset = waveIndex * 0.6 + index * 0.08;
 
         for (let i = 0; i < len; i += 1) {
           const x = position.getX(i);
@@ -156,7 +188,7 @@ function FloatingLines({ config }) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
     };
-  }, [config]);
+  }, [props]);
 
   return <div ref={containerRef} className="floating-lines-container" />;
 }

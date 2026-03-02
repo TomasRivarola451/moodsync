@@ -4,7 +4,6 @@
   align-items: center;
   gap: 12px;
   animation: logo-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
-  color: var(--logo-color);
 }
 
 @keyframes logo-appear {
@@ -21,7 +20,6 @@
 .logo-icon {
   width: 64px;
   height: 64px;
-  filter: drop-shadow(0 0 22px rgba(20, 184, 166, 0.45));
 }
 
 .logo-text {
@@ -30,14 +28,7 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  background: linear-gradient(
-    135deg,
-    var(--logo-color),
-    rgba(226, 232, 240, 0.95)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: inherit;
 }
 
 /* Size variants */

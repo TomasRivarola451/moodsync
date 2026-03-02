@@ -27,66 +27,65 @@ function App() {
     const configs = {
       neutral: {
         linesGradient: ["#14b8a6", "#0d9488", "#0f766e"],
-        lineCount: 4,
-        animationSpeed: 0.6,
+        lineCount: [6, 4],
+        lineDistance: [5, 6],
         enabledWaves: ["bottom", "middle"],
+        animationSpeed: 0.6,
       },
       happy: {
         linesGradient: ["#22c55e", "#16a34a", "#15803d"],
-        lineCount: 5,
-        animationSpeed: 0.8,
+        lineCount: [7, 5],
+        lineDistance: [4, 5],
         enabledWaves: ["bottom", "middle"],
+        animationSpeed: 0.8,
       },
       sad: {
         linesGradient: ["#3b82f6", "#2563eb", "#1d4ed8"],
-        lineCount: 3,
-        animationSpeed: 0.4,
+        lineCount: [4, 3],
+        lineDistance: [6, 7],
         enabledWaves: ["bottom", "middle"],
+        animationSpeed: 0.4,
       },
       energetic: {
         linesGradient: ["#f97316", "#ea580c", "#c2410c"],
-        lineCount: 6,
-        animationSpeed: 1.2,
+        lineCount: [8, 6, 4],
+        lineDistance: [3, 4, 5],
         enabledWaves: ["top", "middle", "bottom"],
+        animationSpeed: 1.2,
       },
       chill: {
         linesGradient: ["#a78bfa", "#8b5cf6", "#7c3aed"],
-        lineCount: 3,
-        animationSpeed: 0.3,
+        lineCount: [5, 3],
+        lineDistance: [7, 8],
         enabledWaves: ["bottom", "middle"],
+        animationSpeed: 0.3,
       },
       angry: {
         linesGradient: ["#ef4444", "#dc2626", "#b91c1c"],
-        lineCount: 5,
+        lineCount: [6, 5],
+        lineDistance: [4, 5],
+        enabledWaves: ["bottom", "middle"],
         animationSpeed: 1.0,
         bendStrength: -0.8,
-        enabledWaves: ["bottom", "middle"],
       },
       tired: {
         linesGradient: ["#64748b", "#475569", "#334155"],
-        lineCount: 2,
-        animationSpeed: 0.2,
+        lineCount: [3, 2],
+        lineDistance: [8, 9],
         enabledWaves: ["bottom"],
+        animationSpeed: 0.2,
       },
     };
 
-    const baseConfig = {
-      lineDistance: 6,
+    return {
       interactive: true,
       bendRadius: 5,
       bendStrength: -0.3,
-      mouseDamping: 0.08,
+      mouseDamping: 0.05,
       parallax: true,
       parallaxStrength: 0.15,
       mixBlendMode: "screen",
-    };
-
-    const moodKey = currentMood || "neutral";
-
-    return {
-      ...baseConfig,
-      ...configs.neutral,
-      ...configs[moodKey],
+      ...configs[currentMood || "neutral"],
     };
   };
 
@@ -134,7 +133,7 @@ function App() {
   return (
     <EmotionalAudioProvider mood={mood}>
       <div className="floating-lines-background">
-        <FloatingLines config={getFloatingLinesConfig(mood)} />
+        <FloatingLines {...getFloatingLinesConfig(mood)} />
       </div>
 
       {/* Background animado */}

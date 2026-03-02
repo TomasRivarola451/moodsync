@@ -10,13 +10,12 @@ export function useIntersectionObserver(options = {}) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+        // Update visibility on EVERY intersection change
+        setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.1,
+        threshold: 0.15,
+        rootMargin: "-50px",
         ...options,
       }
     );

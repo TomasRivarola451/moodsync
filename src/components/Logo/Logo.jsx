@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import logoSvg from "../../assets/logo.svg";
 import "./Logo.css";
 
@@ -15,23 +14,33 @@ const getMoodColor = (mood) => {
   return colors[mood] || colors.neutral;
 };
 
-function Logo({ mood, size = "medium" }) {
-  const [currentColor, setCurrentColor] = useState("#14b8a6");
-
-  useEffect(() => {
-    setCurrentColor(getMoodColor(mood));
-  }, [mood]);
+function Logo({ mood }) {
+  const color = getMoodColor(mood);
 
   return (
-    <div
-      className={`logo-container logo-${size}`}
-      style={{ "--logo-color": currentColor }}
-    >
-      <img src={logoSvg} alt="MoodSync logo" className="logo-icon" />
-      <span className="logo-text">MoodSync</span>
+    <div className="logo-container">
+      <img
+        src={logoSvg}
+        alt="MoodSync"
+        className="logo-icon"
+        style={{
+          filter: `drop-shadow(0 0 20px ${color}40)`,
+          transition: "filter 0.6s ease",
+        }}
+      />
+      <span
+        className="logo-text"
+        style={{
+          color,
+          transition: "color 0.6s ease",
+        }}
+      >
+        MOODSYNC
+      </span>
     </div>
   );
 }
 
 export default Logo;
+
 
