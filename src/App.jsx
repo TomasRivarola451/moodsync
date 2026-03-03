@@ -20,7 +20,6 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Estado visual: si ya hubo detección o no
   const hasDetectedMood = mood !== null;
 
   const getFloatingLinesConfig = (currentMood) => {
@@ -89,13 +88,28 @@ function App() {
     };
   };
 
-  // Actualizar tema según mood
+  // Actualizar tema según mood + LIMPIAR INLINE STYLES
   useEffect(() => {
+    // Función para limpiar estilos inline
+    const cleanInlineStyles = () => {
+      document.documentElement.style.removeProperty('--bg-gradient');
+      document.documentElement.style.removeProperty('--bg-color');
+      document.documentElement.style.removeProperty('--aura-color');
+      document.documentElement.style.removeProperty('--primary-color');
+      document.documentElement.style.removeProperty('--secondary-color');
+      document.documentElement.style.removeProperty('--accent-color');
+      document.documentElement.style.removeProperty('--text-color');
+      document.documentElement.style.removeProperty('--motion-duration');
+    };
+
     if (mood) {
       document.documentElement.setAttribute("data-theme", mood);
     } else {
       document.documentElement.setAttribute("data-theme", "neutral");
     }
+    
+    // Limpiar estilos inline después de setear el tema
+    cleanInlineStyles();
   }, [mood]);
 
   const handleMoodSubmit = async (text) => {
@@ -122,7 +136,6 @@ function App() {
   };
 
   const handleChangeMood = () => {
-    // Reset para volver al estado inicial
     setMood(null);
     setVariant(null);
     setReason(null);
@@ -136,15 +149,11 @@ function App() {
         <FloatingLines {...getFloatingLinesConfig(mood)} />
       </div>
 
-      {/* Background animado */}
       <AnimatedBackground mood={mood} />
       
-      {/* Particles por mood */}
       {mood && <MoodParticles mood={mood} />}
 
-      {/* Layout principal */}
       <Layout hasDetectedMood={hasDetectedMood}>
-        {/* Input: compacto si ya hay mood, hero si no */}
         <MoodInput
           onSubmit={handleMoodSubmit}
           loading={loading}
@@ -162,7 +171,6 @@ function App() {
           </div>
         )}
 
-        {/* Resultado: solo visible cuando hay mood */}
         {hasDetectedMood && (
           <>
             <MoodResultHeader
@@ -174,13 +182,11 @@ function App() {
 
             <MoodResult mood={mood} error={error} />
 
-            {/* Banner emocional final */}
             <EmotionalBanner mood={mood} />
           </>
         )}
       </Layout>
 
-      {/* Botón de audio toggle */}
       <AudioToggleButton />
     </EmotionalAudioProvider>
   );
