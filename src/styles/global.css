@@ -1,22 +1,27 @@
-/* ============================================
-   FONDO NEGRO FORZADO - MÁXIMA PRIORIDAD
-   ============================================ */
+/* ==========================================
+   FORZAR NEGRO - MÁXIMA PRIORIDAD
+   ========================================== */
 
-   html {
+   * {
+    box-sizing: border-box;
+  }
+  
+  html {
     background: #0a0f19 !important;
     background-color: #0a0f19 !important;
   }
   
   body {
+    margin: 0;
+    padding: 0;
     background: #0a0f19 !important;
     background-color: #0a0f19 !important;
   }
   
   #root {
     background: transparent !important;
+    min-height: 100vh;
   }
-  
-  /* ============================================ */
 * {
 
   box-sizing: border-box;
