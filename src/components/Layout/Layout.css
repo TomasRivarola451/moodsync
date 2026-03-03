@@ -22,10 +22,7 @@
   padding-top: 60px;
 }
 
-/* ELIMINAR: Capa aura azul que causaba el problema */
-/* Ya no necesitamos .aura-layer */
 
-/* Capa de degradado muy sutil sobre el negro */
 .app-layout::before {
   content: "";
   position: fixed;
