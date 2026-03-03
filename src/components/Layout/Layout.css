@@ -7,39 +7,23 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centrado cuando no hay resultados */
-  background: transparent !important; /* Base negro puro */
+  align-items: center;
+  background: #0a0f19 !important;
   padding: 40px 20px 80px;
   position: relative;
-  overflow-y: auto; /* Scroll habilitado */
+  overflow-y: auto;
   overflow-x: hidden;
-  transition: align-items 0.6s ease; /* Transición suave */
+  transition: align-items 0.6s ease;
 }
 
 /* Cuando hay resultados, alinear arriba */
 .app-layout--has-results {
   align-items: flex-start;
-  padding-top: 60px; /* Menos padding superior */
+  padding-top: 60px;
 }
 
-/* Capa atmosférica */
-.aura-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.7;
-  background: radial-gradient(
-    circle at 50% 20%,
-    var(--aura-color-1, rgba(56, 189, 248, 0.12)) 0%,
-    transparent 60%
-  );
-  animation: aura-breathe 8s ease-in-out infinite;
-  transition: opacity 0.8s ease;
-}
+/* ELIMINAR: Capa aura azul que causaba el problema */
+/* Ya no necesitamos .aura-layer */
 
 /* Capa de degradado muy sutil sobre el negro */
 .app-layout::before {
@@ -49,7 +33,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent !important; 
+  background: transparent !important;
   pointer-events: none;
   z-index: 1;
 }
@@ -69,17 +53,6 @@
 
 .floating-lines-background.transitioning {
   opacity: 0;
-}
-
-@keyframes aura-breathe {
-  0%, 100% {
-    transform: scale(1) translateY(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.1) translateY(-10px);
-    opacity: 0.5;
-  }
 }
 
 /* Contenedor interno */
@@ -117,32 +90,4 @@
   .app-layout-inner {
     gap: 24px;
   }
-}
-
-/* ====================================== */
-/* VARIABLES DE AURA POR TEMA */
-/* ====================================== */
-
-[data-theme="happy"] {
-  --aura-color-1: rgba(34, 197, 94, 0.15);
-}
-
-[data-theme="sad"] {
-  --aura-color-1: rgba(14, 165, 233, 0.12);
-}
-
-[data-theme="energetic"] {
-  --aura-color-1: rgba(249, 115, 22, 0.15);
-}
-
-[data-theme="chill"] {
-  --aura-color-1: rgba(139, 92, 246, 0.12);
-}
-
-[data-theme="angry"] {
-  --aura-color-1: rgba(239, 68, 68, 0.15);
-}
-
-[data-theme="tired"] {
-  --aura-color-1: rgba(100, 116, 139, 0.12);
 }
