@@ -25,22 +25,20 @@ function getAuraColor(mood) {
 }
 
 /* -------------------------------------------------- */
-/* 🎨 Themes por mood                                */
+/* 🎨 Themes por mood - NEGRO PURO                   */
 /* -------------------------------------------------- */
 
 export const themesByMood = {
   neutral: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #1f2933 0%, #020617 55%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#e5e7eb",
     secondaryColor: "#9ca3af",
     textColor: "#f9fafb",
-    accentColor: "#38bdf8",
+    accentColor: "#14b8a6", // ← TEAL para neutral
     animationStyle: "calm",
   },
   happy: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #22c55e33 0%, #0f172a 45%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#f9fafb",
     secondaryColor: "#bbf7d0",
     textColor: "#f9fafb",
@@ -48,17 +46,15 @@ export const themesByMood = {
     animationStyle: "bright",
   },
   sad: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #0ea5e933 0%, #020617 50%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#e5e7eb",
     secondaryColor: "#94a3b8",
     textColor: "#e2e8f0",
-    accentColor: "#38bdf8",
+    accentColor: "#3b82f6",
     animationStyle: "soft-slow",
   },
   chill: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #8b5cf633 0%, #020617 50%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#e5e7eb",
     secondaryColor: "#a5b4fc",
     textColor: "#e5e7eb",
@@ -66,8 +62,7 @@ export const themesByMood = {
     animationStyle: "calm",
   },
   energetic: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #f9731633 0%, #111827 40%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#fefce8",
     secondaryColor: "#fed7aa",
     textColor: "#f9fafb",
@@ -75,8 +70,7 @@ export const themesByMood = {
     animationStyle: "punchy",
   },
   tired: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #4b556333 0%, #020617 50%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#e5e7eb",
     secondaryColor: "#9ca3af",
     textColor: "#e5e7eb",
@@ -84,12 +78,11 @@ export const themesByMood = {
     animationStyle: "soft-slow",
   },
   angry: {
-    backgroundGradient:
-      "radial-gradient(circle at top, #ef444433 0%, #111827 40%, #020617 100%)",
+    backgroundGradient: "transparent", // ← CAMBIO AQUÍ
     primaryColor: "#fee2e2",
     secondaryColor: "#fca5a5",
     textColor: "#fef2f2",
-    accentColor: "#f97373",
+    accentColor: "#ef4444",
     animationStyle: "firm",
   },
 };
@@ -119,8 +112,8 @@ export function ThemeProvider({ children }) {
     root.setAttribute("data-theme", currentMood);
     root.setAttribute("data-theme-animation", theme.animationStyle);
 
-    // Variables visuales
-    root.style.setProperty("--bg-gradient", theme.backgroundGradient);
+    // Variables visuales - SIN backgroundGradient
+    // root.style.setProperty("--bg-gradient", theme.backgroundGradient); ← ELIMINADO
     root.style.setProperty("--primary-color", theme.primaryColor);
     root.style.setProperty("--secondary-color", theme.secondaryColor);
     root.style.setProperty("--text-color", theme.textColor);
