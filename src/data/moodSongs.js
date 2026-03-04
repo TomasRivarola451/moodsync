@@ -1,3 +1,5 @@
+import { cover } from "three/src/extras/TextureUtils.js";
+
 export const moodSongs = {
   happy: {
     label: "contento",
@@ -15,7 +17,7 @@ export const moodSongs = {
       { title: "Best Day of My Life", artist: "American Authors" },
       { title: "Shut Up and Dance", artist: "WALK THE MOON" },
       { title: "Shake It Off", artist: "Taylor Swift" },
-      { title: "On Top of the World", artist: "Imagine Dragons" },
+      { title: "On Top of the World", artist: "Imagine Dragons", cover: "/covers/happy/TopOfWorld.jpg" },
       { title: "Feel Good Inc.", artist: "Gorillaz" },
       { title: "I Gotta Feeling", artist: "Black Eyed Peas" },
       { title: "Levitating", artist: "Dua Lipa" },
