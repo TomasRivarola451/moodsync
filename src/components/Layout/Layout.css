@@ -8,14 +8,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0a0f19 !important;
+  background: #000;   /* negro real */
   padding: 40px 20px 80px;
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
   transition: align-items 0.6s ease;
 }
-
 /* Cuando hay resultados, alinear arriba */
 .app-layout--has-results {
   align-items: flex-start;
