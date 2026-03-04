@@ -77,18 +77,12 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     const root = document.documentElement;
-
-    // Atributos globales
+    
+    // SOLO setear el atributo data-theme
+    // El CSS de themes.css hace el resto
     root.setAttribute("data-theme", currentMood);
-    root.setAttribute("data-theme-animation", theme.animationStyle);
-
-    // Variables visuales SOLAMENTE colores, NO backgrounds
-    root.style.setProperty("--primary-color", theme.primaryColor);
-    root.style.setProperty("--secondary-color", theme.secondaryColor);
-    root.style.setProperty("--text-color", theme.textColor);
-    root.style.setProperty("--accent-color", theme.accentColor);
-
-    // Ritmo de animación
+    
+    // Ritmo de animación (esto está bien dejarlo)
     const motionDuration =
       theme.animationStyle === "punchy"
         ? "260ms"
@@ -97,7 +91,7 @@ export function ThemeProvider({ children }) {
         : theme.animationStyle === "soft-slow"
         ? "520ms"
         : "380ms";
-
+  
     root.style.setProperty("--motion-duration", motionDuration);
   }, [currentMood, theme]);
 

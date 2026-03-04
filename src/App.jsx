@@ -11,6 +11,7 @@ import FloatingLines from "./components/FloatingLines/FloatingLines";
 import { EmotionalAudioProvider } from "./audio/EmotionalAudioProvider";
 import { getMoodFromText } from "./services/aiService";
 import "./App.css";
+import "./styles/themes.css";
 
 function App() {
   const [mood, setMood] = useState(null);
