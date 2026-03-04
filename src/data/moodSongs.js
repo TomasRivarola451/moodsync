@@ -5,7 +5,7 @@ export const moodSongs = {
     description: "Subí el volumen y dejate llevar por el buen ánimo.",
     quote: "Aprovechá este momento. Guardate este mood para los días grises.",
     songs: [
-      { title: "Happy", artist: "Pharrell Williams", cover: "/audio/covers/happy/happyPharrel.webp" },
+      { title: "Happy", artist: "Pharrell Williams", cover: "/audio/covers/happy/reloj.jpg" },
       { title: "Good as Hell", artist: "Lizzo" },
       { title: "Can't Stop the Feeling!", artist: "Justin Timberlake" },
       { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars" },
