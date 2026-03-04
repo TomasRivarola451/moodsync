@@ -5,7 +5,7 @@ export const moodSongs = {
     description: "Subí el volumen y dejate llevar por el buen ánimo.",
     quote: "Aprovechá este momento. Guardate este mood para los días grises.",
     songs: [
-      { title: "Happy", artist: "Pharrell Williams", cover: "/audio/covers/happy/reloj.jpg" },
+      { title: "Happy", artist: "Pharrell Williams", cover: "/covers/happy/happyPharrel.webp" },
       { title: "Good as Hell", artist: "Lizzo" },
       { title: "Can't Stop the Feeling!", artist: "Justin Timberlake" },
       { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars" },
@@ -22,7 +22,7 @@ export const moodSongs = {
       { title: "Sugar", artist: "Maroon 5" }
     ],
     albums: [
-      { title: "24K Magic", artist: "Bruno Mars", cover: "24kBrunoMars.webp" },
+      { title: "24K Magic", artist: "Bruno Mars", cover: "/covers/happy/24kBrunoMars.webp" },
       { title: "Purpose", artist: "Justin Bieber", cover: "" },
       { title: "Dua Lipa", artist: "Dua Lipa", cover: "" },
       { title: "Future Nostalgia", artist: "Dua Lipa", cover: "" },
