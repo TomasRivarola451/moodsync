@@ -319,7 +319,7 @@
   cursor: pointer;
   
   /* Glass puro */
-  background: rgba(0, 0, 0, 0.35);
+  background: transparent;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   
