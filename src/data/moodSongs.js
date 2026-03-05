@@ -8,9 +8,9 @@ export const moodSongs = {
     quote: "Aprovechá este momento. Guardate este mood para los días grises.",
     songs: [
       { title: "Happy", artist: "Pharrell Williams", cover: "/covers/happy/happyPharrel.webp" },
-      { title: "Good as Hell", artist: "Lizzo" },
-      { title: "Can't Stop the Feeling!", artist: "Justin Timberlake" },
-      { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars" },
+      { title: "Good as Hell", artist: "Lizzo", cover: "/covers/happy/GoodAsHell.webp" },
+      { title: "Can't Stop the Feeling!", artist: "Justin Timberlake", cover: "/covers/happy/cantStopTheFeeling.webp" },
+      { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", cover: "/covers/happy/UptownFunk.webp" },
       { title: "Walking on Sunshine", artist: "Katrina & The Waves" },
       { title: "Blinding Lights", artist: "The Weeknd" },
       { title: "Good Life", artist: "OneRepublic" },
