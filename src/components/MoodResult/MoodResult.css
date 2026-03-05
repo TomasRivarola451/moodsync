@@ -24,17 +24,15 @@
   padding: 32px 32px 40px;
   border-radius: 24px;
   
-  /* Glass puro - negro transparente */
-  background: rgba(10, 15, 25, 0.4);
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  /* Negro transparente SIN blur */
+  background: rgba(0, 0, 0, 0.5);
   
-  /* Border MUY sutil con mood color */
-  border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.12);
+  /* Border muy sutil */
+  border: 1px solid rgba(255, 255, 255, 0.08);
   
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 30px 80px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   
   animation: mood-result-appear 0.5s cubic-bezier(0.16, 0.84, 0.44, 1);
 }
@@ -104,13 +102,11 @@
   padding: 12px 14px;
   border-radius: 16px;
   
-  /* Glass MUY transparente */
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Negro puro transparente */
+  background: rgba(0, 0, 0, 0.4);
   
   /* Border casi invisible */
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   
   /* Corner cut */
   clip-path: polygon(
@@ -122,8 +118,7 @@
   );
   
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 4px 16px rgba(0, 0, 0, 0.5);
   
   transition: all 0.3s cubic-bezier(0.16, 0.84, 0.44, 1);
   cursor: pointer;
@@ -153,13 +148,12 @@
 
 /* Hover: Glass más fuerte + glow mood color */
 .song-card:hover {
-  background: rgba(0, 0, 0, 0.5);
-  border-color: rgba(var(--accent-rgb, 20, 184, 166), 0.3);
+  background: rgba(0, 0, 0, 0.65);
+  border-color: rgba(var(--accent-rgb, 20, 184, 166), 0.35);
   transform: translateY(-3px);
   box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.6),
-    0 0 24px rgba(var(--accent-rgb, 20, 184, 166), 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 12px 32px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(var(--accent-rgb, 20, 184, 166), 0.25);
 }
 /* Cover de la canción */
 .song-card-cover {
@@ -267,16 +261,13 @@
   padding: 40px 36px;
   border-radius: 24px;
   
-  /* Glass puro - negro transparente (igual que songs) */
-  background: rgba(10, 15, 25, 0.4);
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
-  
-  border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.12);
+  /* Negro transparente igual que songs */
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 30px 80px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   
   overflow: visible !important;
 }
@@ -318,16 +309,12 @@
   transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   
-  /* Glass puro */
-  background: transparent;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  /* Negro puro */
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   
   box-shadow: 
-    0 20px 45px rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 20px 45px rgba(0, 0, 0, 0.8);
 }
 
 .album-card:nth-child(1) {
