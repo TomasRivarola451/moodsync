@@ -19,7 +19,7 @@ export const moodSongs = {
       { title: "Shake It Off", artist: "Taylor Swift", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fe/57/5f/fe575f85-b843-e190-b043-2605d5f6ec59/14UMGIM34830.rgb.jpg/600x600bb.webp" },
       { title: "On Top of the World", artist: "Imagine Dragons", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/f1/47/fd/f147fd03-d70a-1449-3fa4-1b1d544efdb2/12UMGIM46901.rgb.jpg/600x600bb.webp" },
       { title: "Feel Good Inc.", artist: "Gorillaz", cover: "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/17/2b/27/172b27d5-1d4e-8ade-cb2b-a4ff47aca407/mza_8524132254078437865.jpg/600x600.webp" },
-      { title: "I Gotta Feeling", artist: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/72/70/98/727098ec-d206-4924-9499-c928af354c6d/09UMGIM13833.rgb.jpg/600x600.webp" },
+      { title: "I Gotta Feeling", artist: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/72/70/98/727098ec-d206-4924-9499-c928af354c6d/09UMGIM13833.rgb.jpg/600x600bb.webp" },
       { title: "Levitating", artist: "Dua Lipa", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/16/9c/e6/169ce699-5506-0e08-f514-81f08a9ed7f5/190295132651.jpg/600x600bb.webp" },
       { title: "Sugar", artist: "Maroon 5", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/09/af/f5/09aff5b2-a9a0-a357-7d0f-70a937e391b1/00602547297396.rgb.jpg/600x600bb.webp" }
     ],
