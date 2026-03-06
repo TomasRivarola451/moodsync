@@ -14,14 +14,15 @@
   max-width: 800px;
   padding: 48px 40px;
   border-radius: 24px;
-  /* ← CAMBIO AQUÍ: Glassmorphism oscuro */
-  background: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  
+  /* Consistente con otras secciones */
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.2);
+  
   box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 28px 80px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  
   position: relative;
   overflow: hidden;
   animation: mood-header-appear 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
@@ -38,16 +39,17 @@
   }
 }
 
+/* Glow sutil del mood (opcional - muy tenue) */
 .mood-result-header-card::before {
   content: "";
   position: absolute;
   inset: -40%;
   background: radial-gradient(
     circle at top,
-    rgba(var(--accent-rgb, 56, 189, 248), 0.15) 0%,
+    rgba(var(--accent-rgb, 20, 184, 166), 0.08) 0%,
     transparent 60%
   );
-  opacity: 0.5;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -67,7 +69,7 @@
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--secondary-color);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .mood-result-header-title {
@@ -80,11 +82,12 @@
     135deg,
     var(--primary-color) 0%,
     var(--accent-color) 50%,
-    rgba(148, 163, 184, 0.8) 100%
+    var(--secondary-color) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 24px rgba(var(--accent-rgb, 20, 184, 166), 0.3);
 }
 
 .mood-result-header-subtitle {
@@ -92,7 +95,7 @@
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--secondary-color);
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 .mood-result-header-message {
@@ -103,6 +106,7 @@
   font-weight: 600;
   color: var(--primary-color);
   line-height: 1.7;
+  opacity: 0.95;
 }
 
 .mood-result-header-reason {
@@ -111,7 +115,7 @@
   margin: 0 0 16px;
   font-size: 0.9rem;
   color: var(--secondary-color);
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .mood-result-header-quote {
@@ -121,9 +125,10 @@
   font-size: 0.95rem;
   font-style: italic;
   color: var(--secondary-color);
-  opacity: 0.9;
+  opacity: 0.85;
   padding-left: 16px;
   border-left: 3px solid var(--accent-color);
+  box-shadow: -2px 0 8px rgba(var(--accent-rgb, 20, 184, 166), 0.2);
 }
 
 @media (max-width: 768px) {
