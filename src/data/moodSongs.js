@@ -9,27 +9,27 @@ export const moodSongs = {
     songs: [
       { title: "Happy", artist: "Pharrell Williams", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/76/ff/5e/76ff5ee0-7ab4-2ac2-2598-486a9ccc06e1/886444516877.jpg/600x600.webp" },
       { title: "Good as Hell", artist: "Lizzo", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bf/ce/0a/bfce0a2a-8025-9f25-0d18-e9f77c964d4e/075679833518.jpg/600x600bb.webp" },
-      { title: "Can't Stop the Feeling!", artist: "Justin Timberlake", cover: "/covers/happy/cantStopTheFeeling.webp" },
-      { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", cover: "/covers/happy/UptownFunk.webp" },
-      { title: "Walking on Sunshine", artist: "Katrina & The Waves", cover: "/covers/happy/WalkingOnSunshine.webp" },
-      { title: "Blinding Lights", artist: "The Weeknd", cover: "/covers/happy/BlindingLights.webp" },
-      { title: "Good Life", artist: "OneRepublic", cover: "/covers/happy/GoodLife.webp" },
-      { title: "Best Day of My Life", artist: "American Authors", cover: "/covers/happy/BestDayOfMyLife.webp" },
-      { title: "Shut Up and Dance", artist: "WALK THE MOON", cover: "/covers/happy/ShutUpAndDance.webp" },
-      { title: "Shake It Off", artist: "Taylor Swift", cover: "/covers/happy/ShakeItOff.webp" },
-      { title: "On Top of the World", artist: "Imagine Dragons", cover: "/covers/happy/TopOfWorld.jpg" },
-      { title: "Feel Good Inc.", artist: "Gorillaz" },
-      { title: "I Gotta Feeling", artist: "Black Eyed Peas" },
-      { title: "Levitating", artist: "Dua Lipa" },
-      { title: "Sugar", artist: "Maroon 5" }
+      { title: "Can't Stop the Feeling!", artist: "Justin Timberlake", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/52/d0/02/52d002d7-1f7f-8d91-4791-ed04c460ec93/886445894653.jpg/600x600bb.webp" },
+      { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/de/5d/5f/de5d5ff5-83c4-7687-8130-aaec5552d04a/886445360462.jpg/600x600bb.webp" },
+      { title: "Walking on Sunshine", artist: "Katrina & The Waves", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f6/b6/37/f6b6378c-9b34-72fb-9abe-4a6d6042ad53/13ULAIM49571.rgb.jpg/600x600bb.webp" },
+      { title: "Blinding Lights", artist: "The Weeknd", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a6/6e/bf/a66ebf79-5008-8948-b352-a790fc87446b/19UM1IM04638.rgb.jpg/600x600bb.webp" },
+      { title: "Good Life", artist: "OneRepublic", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c6/26/a1/c626a111-e2f8-0662-1705-fef158c1a548/09UMGIM45269.rgb.jpg/600x600bb.webp" },
+      { title: "Best Day of My Life", artist: "American Authors", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/eb/b2/be/ebb2bef9-1aae-ca9b-6899-09c27f57b975/14UMGIM04468.rgb.jpg/600x600bb.webp" },
+      { title: "Shut Up and Dance", artist: "WALK THE MOON", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0c/13/ca/0c13ca44-3b42-95b1-340a-56304dd408c3/886444911689.jpg/600x600bb.webp" },
+      { title: "Shake It Off", artist: "Taylor Swift", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fe/57/5f/fe575f85-b843-e190-b043-2605d5f6ec59/14UMGIM34830.rgb.jpg/600x600bb.webp" },
+      { title: "On Top of the World", artist: "Imagine Dragons", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/f1/47/fd/f147fd03-d70a-1449-3fa4-1b1d544efdb2/12UMGIM46901.rgb.jpg/600x600bb.webp" },
+      { title: "Feel Good Inc.", artist: "Gorillaz", cover: "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/17/2b/27/172b27d5-1d4e-8ade-cb2b-a4ff47aca407/mza_8524132254078437865.jpg/600x600.webp" },
+      { title: "I Gotta Feeling", artist: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/72/70/98/727098ec-d206-4924-9499-c928af354c6d/09UMGIM13833.rgb.jpg/600x600.webp" },
+      { title: "Levitating", artist: "Dua Lipa", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/16/9c/e6/169ce699-5506-0e08-f514-81f08a9ed7f5/190295132651.jpg/600x600bb.webp" },
+      { title: "Sugar", artist: "Maroon 5", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/09/af/f5/09aff5b2-a9a0-a357-7d0f-70a937e391b1/00602547297396.rgb.jpg/600x600bb.webp" }
     ],
     albums: [
-      { title: "24K Magic", artist: "Bruno Mars", cover: "/covers/happy/24kBrunoMars.webp" },
-      { title: "Purpose", artist: "Justin Bieber", cover: "" },
-      { title: "Dua Lipa", artist: "Dua Lipa", cover: "" },
-      { title: "Future Nostalgia", artist: "Dua Lipa", cover: "" },
-      { title: "÷", artist: "Ed Sheeran", cover: "" },
-      { title: "Random Access Memories", artist: "Daft Punk", cover: "" }
+      { title: "24K Magic", artist: "Bruno Mars", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8a/33/2f/8a332f0c-503f-08ca-b3e6-06550cf973c1/075679894229.jpg/600x600bb.webp" },
+      { title: "Purpose", artist: "Justin Bieber", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/81/a4/dc/81a4dc50-8d7e-6ae5-71d3-f83393348248/15UMGIM59807.rgb.jpg/600x600bb.webp" },
+      { title: "Dua Lipa", artist: "Dua Lipa", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c1/54/2d/c1542d45-c6c2-12ca-7308-6eacd762c562/190295807870.jpg/600x600bb.webp" },
+      { title: "Future Nostalgia", artist: "Dua Lipa", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/11/d6/6c11d681-aa3a-d59e-4c2e-f77e181026ab/190295092665.jpg/600x600bb.webp" },
+      { title: "÷", artist: "Ed Sheeran", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/24/35/6f2435c0-bd47-5882-8211-c4bab6661841/190295694975.jpg/600x600.webp" },
+      { title: "Random Access Memories", artist: "Daft Punk", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e8/43/5f/e8435ffa-b6b9-b171-40ab-4ff3959ab661/886443919266.jpg/600x600bb.webp" }
     ]
   },
   sad: {
