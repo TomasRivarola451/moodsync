@@ -37,7 +37,7 @@ export async function getMoodFromText(text) {
     console.error("[aiService] getMoodFromText error:", error);
     return {
       mood: null,
-      error: "No se pudo interpretar el estado de ánimo 😕",
+      error: "No se pudo interpretar el estado de ánimo ",
     };
   }
 }
