@@ -18,7 +18,8 @@ function getRandomSongs(songs, count) {
 }
 
 function MoodResult({ mood, error }) {
-  const [seed, setSeed] = useState(0);
+  const [songsSeed, setSongsSeed] = useState(0);
+  const [albumsSeed, setAlbumsSeed] = useState(0);
 
   const hasApiMood = Boolean(mood);
   const normalizedMood = hasApiMood ? normalizeMood(mood) : null;
@@ -30,7 +31,8 @@ function MoodResult({ mood, error }) {
 
   useEffect(() => {
     if (hasApiMood) {
-      setSeed((prev) => prev + 1);
+      setSongsSeed((prev) => prev + 1);
+      setAlbumsSeed((prev) => prev + 1);
     }
   }, [hasApiMood, normalizedMood]);
 
@@ -40,7 +42,16 @@ function MoodResult({ mood, error }) {
       moodData && Array.isArray(moodData.songs)
         ? getRandomSongs(moodData.songs, 8)
         : [],
-    [moodData, seed]
+    [moodData, songsSeed]
+  );
+
+  // 3 álbumes aleatorios de los 6 disponibles
+  const albums = useMemo(
+    () =>
+      moodData && Array.isArray(moodData.albums)
+        ? getRandomSongs(moodData.albums, 3)
+        : [],
+    [moodData, albumsSeed]
   );
 
   if (error) {
@@ -53,12 +64,16 @@ function MoodResult({ mood, error }) {
 
   if (!hasApiMood) return null;
 
-  const handleAnotherRecommendation = () => {
-    setSeed((prev) => prev + 1);
+  const handleAnotherSongs = () => {
+    setSongsSeed((prev) => prev + 1);
+  };
+
+  const handleAnotherAlbums = () => {
+    setAlbumsSeed((prev) => prev + 1);
   };
 
   const hasSongs = songs.length > 0;
-  const hasAlbums = moodData?.albums?.length > 0;
+  const hasAlbums = albums.length > 0;
 
   return (
     <div className="mood-result">
@@ -81,7 +96,7 @@ function MoodResult({ mood, error }) {
           <ul className="song-list">
             {songs.map((song, index) => (
               <li
-                key={`${song.title}-${song.artist}-${index}`}
+                key={`${song.title}-${song.artist}-${songsSeed}-${index}`}
                 className="song-card"
               >
                 <div className="song-card-cover">
@@ -110,7 +125,7 @@ function MoodResult({ mood, error }) {
           <button
             type="button"
             className="another-recommendation"
-            onClick={handleAnotherRecommendation}
+            onClick={handleAnotherSongs}
           >
             Otra recomendación
           </button>
@@ -127,10 +142,10 @@ function MoodResult({ mood, error }) {
           <div className="albums-container">
             <div className="albums-stack-wrapper">
               <div className="albums-stack">
-                {moodData.albums.slice(0, 3).map((album, index) => (
+                {albums.map((album, index) => (
                   <div
-                    key={`${album.title}-${album.artist}-${index}`}
-                    className={`album-card album-${index}`}
+                    key={`${album.title}-${album.artist}-${albumsSeed}-${index}`}
+                    className="album-card"
                   >
                     {album.cover ? (
                       <img
@@ -143,12 +158,8 @@ function MoodResult({ mood, error }) {
                     )}
 
                     <div className="album-overlay">
-                      <span className="album-card-title">
-                        {album.title}
-                      </span>
-                      <span className="album-card-artist">
-                        {album.artist}
-                      </span>
+                      <div className="album-card-title">{album.title}</div>
+                      <div className="album-card-artist">{album.artist}</div>
                     </div>
                   </div>
                 ))}
@@ -167,6 +178,14 @@ function MoodResult({ mood, error }) {
                 <li>Experiencia de escucha continua, sin saltar de tema.</li>
                 <li>Descubrí artistas y discos que pueden marcarte.</li>
               </ul>
+
+              <button
+                type="button"
+                className="another-recommendation another-recommendation-albums"
+                onClick={handleAnotherAlbums}
+              >
+                Otra recomendación
+              </button>
             </div>
           </div>
         </section>
