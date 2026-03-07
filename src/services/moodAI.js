@@ -10,7 +10,8 @@ export const moodMap = {
   down: "sad",
   lonely: "sad",
 
-  calm: "chill",
+  chill: "chill",      // ✅ AGREGADO
+  calm: "chill",       // ✅ calm → chill
   relaxed: "chill",
   anxious: "chill",
   stressed: "chill",
