@@ -445,6 +445,10 @@
 /* ALBUM OVERLAY - TÍTULOS LEGIBLES      */
 /* ====================================== */
 
+/* ====================================== */
+/* ALBUM OVERLAY - TÍTULOS LEGIBLES      */
+/* ====================================== */
+
 .album-overlay {
   position: absolute;
   bottom: 0;
@@ -462,10 +466,14 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   
+  /* FIX: Siempre visible, solo cambia opacidad */
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+  
+  /* FIX: Sin transform, evita reflow */
+  transition: opacity 0.3s ease;
+  
   z-index: 2;
+  pointer-events: none; /* No interfiere con clics */
   
   display: flex;
   flex-direction: column;
@@ -474,7 +482,6 @@
 
 .album-card:hover .album-overlay {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* Título del álbum - MEJORADO */
