@@ -25,8 +25,9 @@ function Logo({ mood, size = "medium" }) {
         className="logo-svg"
         style={{
           filter: `
-            drop-shadow(0 4px 12px ${color}40) 
-            drop-shadow(0 0 24px ${color}30)
+            drop-shadow(0 6px 16px ${color}50) 
+            drop-shadow(0 0 32px ${color}35)
+            drop-shadow(0 0 48px ${color}20)
           `,
         }}
       />

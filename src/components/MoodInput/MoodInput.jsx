@@ -18,7 +18,7 @@ function MoodInput({ onSubmit, loading, mood, error, isCompact, onChangeMood }) 
         {!isCompact ? (
           // MODO HERO: Estado inicial sin mood
           <>
-            <Logo mood={mood} size="medium" />
+            <Logo mood={mood} size="large" />  {/* ← CAMBIO: medium → large */}
             <h1 className="mood-input-title">¿Cómo te sentís hoy?</h1>
             <p className="mood-input-subtitle">
               Escribí cómo te sentís y te recomendamos música para acompañarte.
@@ -50,6 +50,9 @@ function MoodInput({ onSubmit, loading, mood, error, isCompact, onChangeMood }) 
         ) : (
           // MODO COMPACT: Ya hay mood detectado
           <div className="mood-input-compact">
+            {/* ← AGREGADO: Logo pequeño en compacto */}
+            <Logo mood={mood} size="small" />
+            
             <div className="mood-badge">
               <span className="mood-badge-label">Mood detectado:</span>
               <span className="mood-badge-value">{mood}</span>

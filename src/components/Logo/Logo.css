@@ -12,7 +12,7 @@
 @keyframes logo-appear {
   from {
     opacity: 0;
-    transform: translateY(-10px) scale(0.95);
+    transform: translateY(-20px) scale(0.9);
   }
   to {
     opacity: 1;
@@ -28,20 +28,22 @@
   width: 100%;
   height: auto;
   transition: all 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
-  will-change: filter;
+  will-change: filter, transform;
 }
 
-/* Breathing effect cuando hay mood activo */
+/* Breathing effect MÁS NOTORIO */
 .logo-svg {
-  animation: logo-breathe 3s ease-in-out infinite;
+  animation: logo-breathe 2.5s ease-in-out infinite;
 }
 
 @keyframes logo-breathe {
   0%, 100% {
     transform: scale(1);
+    filter: brightness(1);
   }
   50% {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    filter: brightness(1.15);
   }
 }
 
@@ -51,25 +53,31 @@
 
 /* Small - Para header compacto */
 .logo-small {
-  width: 120px;
+  width: 100px;
 }
 
-/* Medium - Default para hero */
+.logo-small .logo-svg {
+  animation: none; /* Sin breathing en small */
+}
+
+/* Medium - Default */
 .logo-medium {
-  width: 200px;
+  width: 180px;
 }
 
-/* Large - Para hero cuando querés impacto */
+/* Large - Para hero con impacto */
 .logo-large {
-  width: 280px;
+  width: 240px;
 }
 
 /* ====================================== */
-/* HOVER EFFECT (solo en hero) */
+/* HOVER EFFECT (solo en large) */
 /* ====================================== */
 
-.logo-container:hover .logo-svg {
-  transform: scale(1.05);
+.logo-large:hover .logo-svg {
+  transform: scale(1.08);
+  filter: brightness(1.2);
+  animation-play-state: paused; /* Pausa breathing en hover */
 }
 
 /* ====================================== */
@@ -78,24 +86,24 @@
 
 @media (max-width: 768px) {
   .logo-medium {
-    width: 160px;
+    width: 150px;
   }
   
   .logo-large {
-    width: 220px;
+    width: 200px;
   }
 }
 
 @media (max-width: 640px) {
   .logo-small {
-    width: 100px;
+    width: 80px;
   }
   
   .logo-medium {
-    width: 140px;
+    width: 130px;
   }
   
   .logo-large {
-    width: 180px;
+    width: 170px;
   }
 }
