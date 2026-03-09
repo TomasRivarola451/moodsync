@@ -1,0 +1,117 @@
+/* ====================================== */
+/* MOOD FOOTER */
+/* ====================================== */
+
+.mood-footer {
+    width: 100%;
+    margin-top: 64px;
+    border-radius: 24px;
+    overflow: hidden;
+    
+    /* Consistente con otras secciones */
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.2);
+    
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    
+    animation: footer-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
+  }
+  
+  @keyframes footer-appear {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .mood-footer-content {
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+  
+  .mood-footer-text {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  
+  .mood-footer-button {
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    
+    background: rgba(var(--accent-rgb, 20, 184, 166), 0.15);
+    border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.3);
+    
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    box-shadow: 
+      0 4px 16px rgba(var(--accent-rgb, 20, 184, 166), 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  
+  .mood-footer-button:hover {
+    transform: translateY(-2px);
+    background: rgba(var(--accent-rgb, 20, 184, 166), 0.25);
+    border-color: rgba(var(--accent-rgb, 20, 184, 166), 0.5);
+    box-shadow: 
+      0 8px 24px rgba(var(--accent-rgb, 20, 184, 166), 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  
+  .mood-footer-button:active {
+    transform: translateY(0);
+  }
+  
+  /* ====================================== */
+  /* RESPONSIVE */
+  /* ====================================== */
+  
+  @media (max-width: 768px) {
+    .mood-footer {
+      margin-top: 48px;
+    }
+  
+    .mood-footer-content {
+      padding: 40px 24px;
+      gap: 20px;
+    }
+  
+    .mood-footer-text {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .mood-footer-content {
+      padding: 32px 20px;
+      gap: 16px;
+    }
+  
+    .mood-footer-text {
+      font-size: 0.95rem;
+    }
+  
+    .mood-footer-button {
+      width: 100%;
+      padding: 12px 24px;
+    }
+  }
