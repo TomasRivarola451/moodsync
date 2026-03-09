@@ -4,8 +4,9 @@
 
 .logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 20px; /* ← REDUCIDO de más para acercar logo y título */
   animation: logo-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
 }
 
@@ -21,7 +22,7 @@
 }
 
 /* ====================================== */
-/* SVG LOGO - CALIDAD MEJORADA */
+/* LOGO SVG */
 /* ====================================== */
 
 .logo-svg {
@@ -30,33 +31,81 @@
   
   /* Mejor renderizado */
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  
-  /* Anti-aliasing mejorado */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   
   transition: all 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
   will-change: filter, transform;
 }
 
-/* Breathing effect MÁS NOTORIO */
+/* ====================================== */
+/* ANIMACIONES ALTERNATIVAS */
+/* ====================================== */
+
+/* OPCIÓN 1: Glow Pulse (sutil, elegante) */
 .logo-svg {
-  animation: logo-breathe 2.5s ease-in-out infinite;
+  animation: logo-glow-pulse 3s ease-in-out infinite;
 }
 
-@keyframes logo-breathe {
+@keyframes logo-glow-pulse {
   0%, 100% {
-    transform: scale(1);
     filter: brightness(1);
   }
   50% {
-    transform: scale(1.05);
-    filter: brightness(1.15);
+    filter: brightness(1.1);
   }
 }
+
+/* OPCIÓN 2: Floating (sube y baja suavemente) */
+/* .logo-svg {
+  animation: logo-float 4s ease-in-out infinite;
+}
+
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+} */
+
+/* OPCIÓN 3: Subtle Scale (más sutil que breathing) */
+/* .logo-svg {
+  animation: logo-subtle-scale 4s ease-in-out infinite;
+}
+
+@keyframes logo-subtle-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+} */
+
+/* OPCIÓN 4: Wave (ondula como onda de audio) */
+/* .logo-svg {
+  animation: logo-wave 2.5s ease-in-out infinite;
+}
+
+@keyframes logo-wave {
+  0%, 100% {
+    transform: skewY(0deg);
+  }
+  25% {
+    transform: skewY(0.5deg);
+  }
+  75% {
+    transform: skewY(-0.5deg);
+  }
+} */
+
+/* OPCIÓN 5: Sin animación (solo hover) */
+/* .logo-svg {
+  animation: none;
+} */
 
 /* ====================================== */
 /* SIZE VARIANTS */
@@ -64,11 +113,11 @@
 
 /* Small - Para header compacto */
 .logo-small {
-  width: 80px;
+  width: 100px;
 }
 
 .logo-small .logo-svg {
-  animation: none; /* Sin breathing en small */
+  animation: none; /* Sin animación en small */
 }
 
 /* Medium - Default */
@@ -76,17 +125,18 @@
   width: 180px;
 }
 
-/* Large - Para hero con impacto */
+/* Large - Para hero */
 .logo-large {
-  width: 220px; /* Reducido de 240px para mejor balance */
+  width: 220px;
 }
 
 /* ====================================== */
-/* HOVER EFFECT (solo en large) */
+/* HOVER EFFECT */
 /* ====================================== */
 
 .logo-large:hover .logo-svg {
-  transform: scale(1.08);
+  transform: scale(1.05);
+  filter: brightness(1.15);
   animation-play-state: paused;
 }
 
@@ -95,6 +145,10 @@
 /* ====================================== */
 
 @media (max-width: 768px) {
+  .logo-container {
+    gap: 16px; /* Menos gap en tablet */
+  }
+  
   .logo-medium {
     width: 150px;
   }
@@ -105,8 +159,12 @@
 }
 
 @media (max-width: 640px) {
+  .logo-container {
+    gap: 12px; /* Aún menos gap en mobile */
+  }
+  
   .logo-small {
-    width: 70px;
+    width: 80px;
   }
   
   .logo-medium {
@@ -115,20 +173,5 @@
   
   .logo-large {
     width: 160px;
-  }
-  
-  /* Mejor calidad en pantallas pequeñas */
-  .logo-svg {
-    image-rendering: auto;
-  }
-}
-
-/* ====================================== */
-/* RETINA / HIGH DPI DISPLAYS */
-/* ====================================== */
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .logo-svg {
-    image-rendering: -webkit-optimize-contrast;
   }
 }
