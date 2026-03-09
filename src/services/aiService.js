@@ -1,3 +1,5 @@
+import { normalizeMood } from "./moodAI"; // ← AGREGADO
+
 export async function getMoodFromText(text) {
   try {
     const res = await fetch("/api/chat", {
@@ -23,8 +25,11 @@ export async function getMoodFromText(text) {
       };
     }
 
+    // ✅ NORMALIZAR MOOD ANTES DE DEVOLVER
+    const normalizedMood = data.mood ? normalizeMood(data.mood) : null;
+
     const result = {
-      mood: data.mood ?? null,
+      mood: normalizedMood,  // ← CAMBIADO: usa normalizedMood
       variant: data.variant ?? null,
       reason: data.reason ?? null,
       message: data.message ?? null,
@@ -32,12 +37,14 @@ export async function getMoodFromText(text) {
     };
 
     console.log("[aiService] Normalized result for render:", result);
+    console.log("[aiService] Mood normalization:", data.mood, "→", normalizedMood);
+    
     return result;
   } catch (error) {
     console.error("[aiService] getMoodFromText error:", error);
     return {
       mood: null,
-      error: "No se pudo interpretar el estado de ánimo ",
+      error: "No se pudo interpretar el estado de ánimo",
     };
   }
 }
