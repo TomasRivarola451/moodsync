@@ -155,39 +155,39 @@ function App() {
       {mood && <MoodParticles mood={mood} />}
 
       <Layout hasDetectedMood={hasDetectedMood}>
-        <MoodInput
-          onSubmit={handleMoodSubmit}
-          loading={loading}
-          mood={mood}
-          isCompact={hasDetectedMood}
-          onChangeMood={handleChangeMood}
-        />
+  <MoodInput
+    onSubmit={handleMoodSubmit}
+    loading={loading}
+    mood={mood}
+    error={error}          // ✅ AGREGADO
+    isCompact={hasDetectedMood}
+    onChangeMood={handleChangeMood}
+  />
 
-        {loading && (
-          <div className="loading-indicator">
-            <span className="loading-dot" />
-            <span className="loading-dot" />
-            <span className="loading-dot" />
-            <span>Analizando tu estado...</span>
-          </div>
-        )}
+  {loading && (
+    <div className="loading-indicator">
+      <span className="loading-dot" />
+      <span className="loading-dot" />
+      <span className="loading-dot" />
+      <span>Analizando tu estado...</span>
+    </div>
+  )}
 
-        {hasDetectedMood && (
-          <>
-            <MoodResultHeader
-              mood={mood}
-              variant={variant}
-              message={message}
-              reason={reason}
-            />
+  {hasDetectedMood && (
+    <>
+      <MoodResultHeader
+        mood={mood}
+        variant={variant}
+        message={message}
+        reason={reason}
+      />
 
-            <MoodResult mood={mood} error={error} />
+      <MoodResult mood={mood} error={error} />
 
-            <EmotionalBanner mood={mood} />
-          </>
-        )}
-      </Layout>
-
+      <EmotionalBanner mood={mood} />
+    </>
+  )}
+</Layout>
       <AudioToggleButton />
     </EmotionalAudioProvider>
   );

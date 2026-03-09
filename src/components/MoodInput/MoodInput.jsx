@@ -2,7 +2,7 @@ import { useState } from "react";
 import Logo from "../Logo/Logo";
 import "./MoodInput.css";
 
-function MoodInput({ onSubmit, loading, mood, isCompact, onChangeMood }) {
+function MoodInput({ onSubmit, loading, mood, error, isCompact, onChangeMood }) {
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
@@ -41,6 +41,11 @@ function MoodInput({ onSubmit, loading, mood, isCompact, onChangeMood }) {
                 {loading ? "Analizando..." : "Buscar canciones"}
               </button>
             </form>
+
+            {/* MOSTRAR ERROR SI EXISTE */}
+            {error && (
+              <p className="mood-input-error">{error}</p>
+            )}
           </>
         ) : (
           // MODO COMPACT: Ya hay mood detectado

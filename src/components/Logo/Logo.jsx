@@ -14,33 +14,24 @@ const getMoodColor = (mood) => {
   return colors[mood] || colors.neutral;
 };
 
-function Logo({ mood }) {
+function Logo({ mood, size = "medium" }) {
   const color = getMoodColor(mood);
 
   return (
-    <div className="logo-container">
+    <div className={`logo-container logo-${size}`}>
       <img
         src={logoSvg}
         alt="MoodSync"
-        className="logo-icon"
+        className="logo-svg"
         style={{
-          filter: `drop-shadow(0 0 20px ${color}40)`,
-          transition: "filter 0.6s ease",
+          filter: `
+            drop-shadow(0 4px 12px ${color}40) 
+            drop-shadow(0 0 24px ${color}30)
+          `,
         }}
       />
-      <span
-        className="logo-text"
-        style={{
-          color,
-          transition: "color 0.6s ease",
-        }}
-      >
-        MOODSYNC
-      </span>
     </div>
   );
 }
 
 export default Logo;
-
-
