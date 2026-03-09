@@ -44,7 +44,7 @@
 /* ====================================== */
 
 .mood-input-title {
-  margin: 24px 0 12px;
+  margin: 16px 0 12px; /* ← REDUCIDO de 24px a 16px */
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -256,10 +256,10 @@
     padding: 16px 18px;
   }
 
-  .mood-input-title {
-    font-size: 1.6rem;
-    margin-top: 16px;
-  }
+    .mood-input-title {
+      font-size: 1.6rem;
+      margin-top: 12px; /* ← REDUCIDO de 16px a 12px en mobile */
+    }
 
   .mood-input-subtitle {
     font-size: 0.88rem;

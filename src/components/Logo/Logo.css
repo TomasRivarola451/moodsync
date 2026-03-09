@@ -21,12 +21,23 @@
 }
 
 /* ====================================== */
-/* SVG LOGO */
+/* SVG LOGO - CALIDAD MEJORADA */
 /* ====================================== */
 
 .logo-svg {
   width: 100%;
   height: auto;
+  
+  /* Mejor renderizado */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  /* Anti-aliasing mejorado */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
   transition: all 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
   will-change: filter, transform;
 }
@@ -53,7 +64,7 @@
 
 /* Small - Para header compacto */
 .logo-small {
-  width: 100px;
+  width: 80px;
 }
 
 .logo-small .logo-svg {
@@ -67,7 +78,7 @@
 
 /* Large - Para hero con impacto */
 .logo-large {
-  width: 240px;
+  width: 220px; /* Reducido de 240px para mejor balance */
 }
 
 /* ====================================== */
@@ -76,8 +87,7 @@
 
 .logo-large:hover .logo-svg {
   transform: scale(1.08);
-  filter: brightness(1.2);
-  animation-play-state: paused; /* Pausa breathing en hover */
+  animation-play-state: paused;
 }
 
 /* ====================================== */
@@ -90,13 +100,13 @@
   }
   
   .logo-large {
-    width: 200px;
+    width: 180px;
   }
 }
 
 @media (max-width: 640px) {
   .logo-small {
-    width: 80px;
+    width: 70px;
   }
   
   .logo-medium {
@@ -104,6 +114,21 @@
   }
   
   .logo-large {
-    width: 170px;
+    width: 160px;
+  }
+  
+  /* Mejor calidad en pantallas pequeñas */
+  .logo-svg {
+    image-rendering: auto;
+  }
+}
+
+/* ====================================== */
+/* RETINA / HIGH DPI DISPLAYS */
+/* ====================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-svg {
+    image-rendering: -webkit-optimize-contrast;
   }
 }
