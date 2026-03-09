@@ -15,15 +15,15 @@ const getMoodColor = (mood) => {
 };
 
 const getMoodFilter = (mood) => {
-  // Filtros CSS para cambiar el color del logo según mood
+  // Filtros CSS ajustados para colores precisos
   const filters = {
-    neutral: "hue-rotate(0deg) saturate(1)",           // Teal original
-    happy: "hue-rotate(-30deg) saturate(1.2)",         // Verde
-    sad: "hue-rotate(180deg) saturate(1.1)",           // Azul
-    energetic: "hue-rotate(-90deg) saturate(1.3)",     // Naranja
-    chill: "hue-rotate(90deg) saturate(1.2)",          // Violeta
-    angry: "hue-rotate(-120deg) saturate(1.4)",        // Rojo
-    tired: "grayscale(0.3) saturate(0.7)",             // Gris apagado
+    neutral: "hue-rotate(0deg) saturate(1)",              // Teal #14b8a6
+    happy: "hue-rotate(-55deg) saturate(1.3)",            // Verde #22c55e
+    sad: "hue-rotate(200deg) saturate(1.2)",              // Azul #3b82f6
+    energetic: "hue-rotate(-80deg) saturate(1.5) brightness(1.1)", // Naranja #f97316
+    chill: "hue-rotate(100deg) saturate(1.3)",            // Violeta #a78bfa
+    angry: "hue-rotate(-130deg) saturate(1.6) brightness(1.05)",  // Rojo #ef4444
+    tired: "hue-rotate(20deg) saturate(0.5) brightness(0.8)",     // Gris #64748b
   };
   return filters[mood] || filters.neutral;
 };

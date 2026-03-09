@@ -147,18 +147,24 @@
 /* ====================================== */
 
 .mood-input-compact {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   width: 100%;
 }
 
+/* Logo a la izquierda */
+.mood-input-compact .logo-container {
+  justify-self: start;
+}
+
+/* Badge al centro */
 .mood-badge {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  flex: 1;
 }
 
 .mood-badge-label {
@@ -180,11 +186,12 @@
   box-shadow: 0 0 12px rgba(var(--accent-rgb, 20, 184, 166), 0.2);
 }
 
+/* Botón a la derecha */
 .mood-change-button {
   padding: 8px 20px;
   border-radius: 8px;
+  justify-self: end;
   
-  /* Botón consistente con cards */
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.2);
   
@@ -205,7 +212,6 @@
     0 4px 12px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
-
 /* ====================================== */
 /* ERROR MESSAGE */
 /* ====================================== */
@@ -270,5 +276,58 @@
 
   .mood-badge {
     justify-content: center;
+  }
+}@media (max-width: 768px) {
+  .mood-input-compact {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  /* Logo arriba izquierda */
+  .mood-input-compact .logo-container {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Badge arriba derecha */
+  .mood-badge {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+  }
+
+  /* Botón abajo centro (span completo) */
+  .mood-change-button {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .mood-input-compact {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+
+  /* Todo en columna */
+  .mood-input-compact .logo-container {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+  }
+
+  .mood-badge {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: center;
+  }
+
+  .mood-change-button {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: stretch;
   }
 }
