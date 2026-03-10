@@ -72,10 +72,18 @@ function MoodResult({ mood, error }) {
     setAlbumsSeed((prev) => prev + 1);
   };
 
-  // ← NUEVO: Función para abrir Spotify
+  // Función para abrir Spotify - Canciones
   const handleSongClick = (spotifyId) => {
     if (spotifyId) {
       const spotifyUrl = `https://open.spotify.com/track/${spotifyId}`;
+      window.open(spotifyUrl, '_blank');
+    }
+  };
+
+  // ← NUEVO: Función para abrir Spotify - Álbumes
+  const handleAlbumClick = (spotifyId) => {
+    if (spotifyId) {
+      const spotifyUrl = `https://open.spotify.com/album/${spotifyId}`;
       window.open(spotifyUrl, '_blank');
     }
   };
@@ -120,7 +128,6 @@ function MoodResult({ mood, error }) {
                     <span className="song-card-cover-placeholder" />
                   )}
                   
-                  {/* ← NUEVO: Icono de play cuando hay Spotify ID */}
                   {song.spotifyId && (
                     <div className="song-card-overlay">
                       <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -164,7 +171,9 @@ function MoodResult({ mood, error }) {
                 {albums.map((album, index) => (
                   <div
                     key={`${album.title}-${album.artist}-${albumsSeed}-${index}`}
-                    className="album-card"
+                    className={`album-card ${album.spotifyId ? 'album-card-clickable' : ''}`}
+                    onClick={() => handleAlbumClick(album.spotifyId)}
+                    style={{ cursor: album.spotifyId ? 'pointer' : 'default' }}
                   >
                     {album.cover ? (
                       <img
@@ -179,6 +188,13 @@ function MoodResult({ mood, error }) {
                     <div className="album-overlay">
                       <div className="album-card-title">{album.title}</div>
                       <div className="album-card-artist">{album.artist}</div>
+                      
+                      {/* ← NUEVO: Icono de play cuando hay Spotify ID */}
+                      {album.spotifyId && (
+                        <svg className="album-play-icon" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      )}
                     </div>
                   </div>
                 ))}
