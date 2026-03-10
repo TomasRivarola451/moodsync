@@ -607,11 +607,11 @@
 
 /* Icono de play - Álbumes */
 .album-play-icon {
-  width: 56px;
-  height: 56px;
-  color: #1DB954; /* Verde Spotify */
+  width: 48px; /* ← REDUCIDO de 56px */
+  height: 48px; /* ← REDUCIDO de 56px */
+  color: #1DB954;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
-  margin-top: 12px; /* ← REDUCIDO de 16px */
+  margin-top: 8px; /* ← REDUCIDO de 12px */
   opacity: 0;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -622,13 +622,14 @@
   transform: scale(1);
 }
 
-/* Overlay más sutil en álbumes - No cubre toda la imagen */
+/* Overlay MUY sutil en álbumes */
 .album-card-clickable:hover .album-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,        /* ← Transparente arriba */
-    rgba(0, 0, 0, 0.4) 50%,     /* ← Sutil en medio */
-    rgba(0, 0, 0, 0.85) 100%    /* ← Más oscuro solo abajo */
+    rgba(0, 0, 0, 0) 0%,        /* Transparente arriba */
+    rgba(0, 0, 0, 0) 40%,       /* ← NUEVO: Transparente más tiempo */
+    rgba(0, 0, 0, 0.3) 70%,     /* ← NUEVO: Apenas oscuro */
+    rgba(0, 0, 0, 0.75) 100%    /* ← REDUCIDO de 0.85 */
   );
 }
 
@@ -638,6 +639,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  padding-bottom: 20px; /* ← AGREGADO: Más espacio abajo */
 }
 /* ====================================== */
 /* RESPONSIVE */
