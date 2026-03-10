@@ -8,7 +8,7 @@ export const moodSongs = {
     quote: "Aprovechá este momento. Guardate este mood para los días grises.",
     songs: [
       { title: "Happy", artist: "Pharrell Williams", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/76/ff/5e/76ff5ee0-7ab4-2ac2-2598-486a9ccc06e1/886444516877.jpg/600x600.webp", spotifyId: "60nZcImufyMA1MKQY3dcCH" },
-      { title: "Good as Hell", artist: "Lizzo", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bf/ce/0a/bfce0a2a-8025-9f25-0d18-e9f77c964d4e/075679833518.jpg/600x600bb.webp", spotifyId: "6KhWpr4CdsAi0Y0esPJoYe" },
+      { title: "Good as Hell", artist: "Lizzo", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bf/ce/0a/bfce0a2a-8025-9f25-0d18-e9f77c964d4e/075679833518.jpg/600x600bb.webp", spotifyId: "07Oz5StQ7GRoygNLaXs2pd?si=4b8103c669e84116" },
       { title: "Can't Stop the Feeling!", artist: "Justin Timberlake", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/52/d0/02/52d002d7-1f7f-8d91-4791-ed04c460ec93/886445894653.jpg/600x600bb.webp", spotifyId: "1WkMMavIMc4JZ8cfMmxHkI" },
       { title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/de/5d/5f/de5d5ff5-83c4-7687-8130-aaec5552d04a/886445360462.jpg/600x600bb.webp", spotifyId: "32OlwWuMpZ6b0aN2RZOeMS" },
       { title: "Walking on Sunshine", artist: "Katrina & The Waves", cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f6/b6/37/f6b6378c-9b34-72fb-9abe-4a6d6042ad53/13ULAIM49571.rgb.jpg/600x600bb.webp", spotifyId: "05wIrZSwuaVWhcv5FfqeH0" },
