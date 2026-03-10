@@ -72,6 +72,14 @@ function MoodResult({ mood, error }) {
     setAlbumsSeed((prev) => prev + 1);
   };
 
+  // ← NUEVO: Función para abrir Spotify
+  const handleSongClick = (spotifyId) => {
+    if (spotifyId) {
+      const spotifyUrl = `https://open.spotify.com/track/${spotifyId}`;
+      window.open(spotifyUrl, '_blank');
+    }
+  };
+
   const hasSongs = songs.length > 0;
   const hasAlbums = albums.length > 0;
 
@@ -97,7 +105,9 @@ function MoodResult({ mood, error }) {
             {songs.map((song, index) => (
               <li
                 key={`${song.title}-${song.artist}-${songsSeed}-${index}`}
-                className="song-card"
+                className={`song-card ${song.spotifyId ? 'song-card-clickable' : ''}`}
+                onClick={() => handleSongClick(song.spotifyId)}
+                style={{ cursor: song.spotifyId ? 'pointer' : 'default' }}
               >
                 <div className="song-card-cover">
                   {song.cover || song.image ? (
@@ -108,6 +118,15 @@ function MoodResult({ mood, error }) {
                     />
                   ) : (
                     <span className="song-card-cover-placeholder" />
+                  )}
+                  
+                  {/* ← NUEVO: Icono de play cuando hay Spotify ID */}
+                  {song.spotifyId && (
+                    <div className="song-card-overlay">
+                      <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
                   )}
                 </div>
 
