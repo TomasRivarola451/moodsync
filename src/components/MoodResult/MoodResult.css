@@ -607,11 +607,11 @@
 
 /* Icono de play - Álbumes */
 .album-play-icon {
-  width: 48px; /* ← REDUCIDO de 56px */
-  height: 48px; /* ← REDUCIDO de 56px */
+  width: 40px; /* ← MÁS PEQUEÑO */
+  height: 40px;
   color: #1DB954;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
-  margin-top: 8px; /* ← REDUCIDO de 12px */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  margin-top: 6px; /* ← MENOS ESPACIO */
   opacity: 0;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -622,14 +622,14 @@
   transform: scale(1);
 }
 
-/* Overlay MUY sutil en álbumes */
+/* Overlay MUCHO más sutil - Solo 25% inferior */
 .album-card-clickable:hover .album-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,        /* Transparente arriba */
-    rgba(0, 0, 0, 0) 40%,       /* ← NUEVO: Transparente más tiempo */
-    rgba(0, 0, 0, 0.3) 70%,     /* ← NUEVO: Apenas oscuro */
-    rgba(0, 0, 0, 0.75) 100%    /* ← REDUCIDO de 0.85 */
+    rgba(0, 0, 0, 0) 0%,        /* Transparente */
+    rgba(0, 0, 0, 0) 60%,       /* Transparente hasta 60% */
+    rgba(0, 0, 0, 0.2) 75%,     /* Apenas oscuro */
+    rgba(0, 0, 0, 0.7) 100%     /* Oscuro solo abajo para texto */
   );
 }
 
@@ -639,7 +639,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 20px; /* ← AGREGADO: Más espacio abajo */
+  padding-bottom: 16px; /* ← MENOS PADDING */
+}
+
+/* Hacer el texto más compacto */
+.album-card-title {
+  font-size: 0.9rem; /* ← MÁS PEQUEÑO si era más grande */
+  margin-bottom: 2px;
+}
+
+.album-card-artist {
+  font-size: 0.8rem; /* ← MÁS PEQUEÑO */
 }
 /* ====================================== */
 /* RESPONSIVE */

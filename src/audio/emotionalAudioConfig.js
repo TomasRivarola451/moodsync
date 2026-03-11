@@ -5,16 +5,16 @@ export const SENSORY_FAMILY = {
 
   energetic: "energy",
   motivated: "energy",
-  excited: "energy",  // ✅ Ya está bien mapeado
+  excited: "energy",
 
   sad: "low",
   depressed: "low",
   down: "low",
   lonely: "low",
 
-  calm: "chill",      // ✅ CAMBIO: "calm" → "chill"
-  relaxed: "chill",   // ✅ CAMBIO
-  chill: "chill",     // ✅ AGREGADO
+  calm: "chill",
+  relaxed: "chill",
+  chill: "chill",
 
   anxious: "tense",
   stressed: "tense",
@@ -28,8 +28,8 @@ export const SENSORY_FAMILY = {
   angry: "rage",
   frustrated: "rage",
 
-  neutral: "neutral",
-  meh: "neutral",
+  neutral: "tense",  // ← CAMBIADO: usa tense.mp3
+  meh: "tense",      // ← CAMBIADO: usa tense.mp3
 };
 
 // Configuración de archivos y volumen por familia sensorial
@@ -37,9 +37,9 @@ export const AUDIO_CONFIG = {
   bright: { file: "/audio/bright.mp3", volume: 0.35 },
   energy: { file: "/audio/energy.mp3", volume: 0.4 },
   low: { file: "/audio/low.mp3", volume: 0.25 },
-  chill: { file: "/audio/chill.mp3", volume: 0.25 },  // ✅ CORREGIDO: "calm" → "chill", "url" → "file"
+  chill: { file: "/audio/chill.mp3", volume: 0.25 },
   tense: { file: "/audio/tense.mp3", volume: 0.3 },
   fatigue: { file: "/audio/fatigue.mp3", volume: 0.2 },
   rage: { file: "/audio/rage.mp3", volume: 0.4 },
-  neutral: null,
+
 };
