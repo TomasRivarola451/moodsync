@@ -1,5 +1,4 @@
-import { normalizeMood } from "./moodAI"; // ← AGREGADO
-
+import { normalizeMood } from "./moodAI"; 
 export async function getMoodFromText(text) {
   try {
     const res = await fetch("/api/chat", {
@@ -25,11 +24,11 @@ export async function getMoodFromText(text) {
       };
     }
 
-    // ✅ NORMALIZAR MOOD ANTES DE DEVOLVER
+
     const normalizedMood = data.mood ? normalizeMood(data.mood) : null;
 
     const result = {
-      mood: normalizedMood,  // ← CAMBIADO: usa normalizedMood
+      mood: normalizedMood, 
       variant: data.variant ?? null,
       reason: data.reason ?? null,
       message: data.message ?? null,

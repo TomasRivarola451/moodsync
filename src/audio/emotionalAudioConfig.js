@@ -28,8 +28,8 @@ export const SENSORY_FAMILY = {
   angry: "rage",
   frustrated: "rage",
 
-  neutral: "tense",  // ← CAMBIADO: usa tense.mp3
-  meh: "tense",      // ← CAMBIADO: usa tense.mp3
+  neutral: "tense", 
+  meh: "tense",      
 };
 
 // Configuración de archivos y volumen por familia sensorial

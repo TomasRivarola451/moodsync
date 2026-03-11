@@ -1,7 +1,3 @@
-/* ====================================== */
-/* MOOD RESULT HEADER - ISOLATED CARD    */
-/* ====================================== */
-
 .mood-result-header {
   width: 100%;
   margin-top: 56px;
@@ -39,7 +35,6 @@
   }
 }
 
-/* Glow sutil del mood (opcional - muy tenue) */
 .mood-result-header-card::before {
   content: "";
   position: absolute;

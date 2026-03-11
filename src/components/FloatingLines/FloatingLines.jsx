@@ -2,12 +2,6 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import "./FloatingLines.css";
 
-/**
- * Minimal, configurable floating lines background using Three.js.
- * It is intentionally self-contained so you can later swap it
- * with your own implementation if desired.
- */
-
 function FloatingLines(props) {
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
@@ -38,7 +32,7 @@ function FloatingLines(props) {
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Config with sensible fallbacks
+
     const {
       linesGradient = ["#14b8a6", "#0d9488", "#0f766e"],
       lineCount = 4,

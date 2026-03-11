@@ -10,8 +10,8 @@ export const moodMap = {
   down: "sad",
   lonely: "sad",
 
-  chill: "chill",      // ✅ AGREGADO
-  calm: "chill",       // ✅ calm → chill
+  chill: "chill",      
+  calm: "chill",       
   relaxed: "chill",
   anxious: "chill",
   stressed: "chill",
@@ -32,10 +32,7 @@ export const moodMap = {
   meh: "neutral",
 };
 
-/**
- * Normaliza el mood crudo de la API a un mood canónico
- * que siempre tiene canciones asociadas en data/moodSongs.
- */
+
 export function normalizeMood(moodFromApi) {
   if (!moodFromApi || typeof moodFromApi !== "string") {
     return "neutral";

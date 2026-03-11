@@ -4,7 +4,7 @@ import "./AudioToggleButton.css";
 function AudioToggleButton() {
   const { isUserPaused, hasActiveFamily, togglePlayPause } = useEmotionalAudio();
 
-  // Si estamos en neutral y no hay ambiente activo, no mostramos el botón
+
   if (!hasActiveFamily && isUserPaused === false) {
     return null;
   }

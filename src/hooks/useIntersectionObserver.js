@@ -10,7 +10,7 @@ export function useIntersectionObserver(options = {}) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Update visibility on EVERY intersection change
+
         setIsVisible(entry.isIntersecting);
       },
       {

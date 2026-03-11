@@ -48,7 +48,7 @@ function MoodInput({ onSubmit, loading, mood, error, isCompact, onChangeMood }) 
             )}
           </>
         ) : (
-          // MODO COMPACT: Ya hay mood detectado
+
           <div className="mood-input-compact">
             {/* ← AGREGADO: Logo pequeño en compacto */}
             <Logo mood={mood} size="small" />

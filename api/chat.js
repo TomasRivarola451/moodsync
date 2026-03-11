@@ -1,27 +1,22 @@
-/* eslint-env node */
-/* global process */
 import OpenAI from "openai";
 
-/**
- * Elimina TODOS los emojis de un texto
- */
 function removeEmojis(text) {
   if (!text || typeof text !== "string") return text;
   
   return text
-    .replace(/[\u{1F600}-\u{1F64F}]/gu, '') // Emoticons
-    .replace(/[\u{1F300}-\u{1F5FF}]/gu, '') // Símbolos y pictogramas
-    .replace(/[\u{1F680}-\u{1F6FF}]/gu, '') // Transporte
-    .replace(/[\u{1F700}-\u{1F77F}]/gu, '') // Alquímicos
-    .replace(/[\u{1F780}-\u{1F7FF}]/gu, '') // Geométricos
-    .replace(/[\u{1F800}-\u{1F8FF}]/gu, '') // Flechas
-    .replace(/[\u{1F900}-\u{1F9FF}]/gu, '') // Suplementarios
-    .replace(/[\u{1FA00}-\u{1FA6F}]/gu, '') // Ajedrez
-    .replace(/[\u{1FA70}-\u{1FAFF}]/gu, '') // Extendidos-A
-    .replace(/[\u{2600}-\u{26FF}]/gu, '')   // Misceláneos
-    .replace(/[\u{2700}-\u{27BF}]/gu, '')   // Dingbats
-    .replace(/[\u{FE00}-\u{FE0F}]/gu, '')   // Variación
-    .replace(/[\u{1F1E6}-\u{1F1FF}]/gu, '') // Banderas
+    .replace(/[\u{1F600}-\u{1F64F}]/gu, '') 
+    .replace(/[\u{1F300}-\u{1F5FF}]/gu, '') 
+    .replace(/[\u{1F680}-\u{1F6FF}]/gu, '') 
+    .replace(/[\u{1F700}-\u{1F77F}]/gu, '') 
+    .replace(/[\u{1F780}-\u{1F7FF}]/gu, '') 
+    .replace(/[\u{1F800}-\u{1F8FF}]/gu, '') 
+    .replace(/[\u{1F900}-\u{1F9FF}]/gu, '') 
+    .replace(/[\u{1FA00}-\u{1FA6F}]/gu, '') 
+    .replace(/[\u{1FA70}-\u{1FAFF}]/gu, '') 
+    .replace(/[\u{2600}-\u{26FF}]/gu, '')   
+    .replace(/[\u{2700}-\u{27BF}]/gu, '')   
+    .replace(/[\u{FE00}-\u{FE0F}]/gu, '')   
+    .replace(/[\u{1F1E6}-\u{1F1FF}]/gu, '') 
     .trim();
 }
 
@@ -37,7 +32,7 @@ const ALLOWED_MOODS = [
   "down",
   "lonely",
 
-  "chill",      // ✅ CAMBIO: "calm" → "chill"
+  "chill",      
   "relaxed",
   "anxious",
   "stressed",
@@ -174,18 +169,15 @@ function parseAnalysisFromResponse(rawContent) {
     }
   };
 
-  // 1) Intentar parsear como JSON directo
   const direct = tryParseObject(raw);
   if (direct) return direct;
 
-  // 2) Buscar un JSON embebido en texto
   const jsonMatch = raw.match(/\{[\s\S]*\}/);
   if (jsonMatch) {
     const embedded = tryParseObject(jsonMatch[0]);
     if (embedded) return embedded;
   }
 
-  // 3) Si nada funcionó, tratamos como error de formato
   return {
     mood: null,
     variant: null,

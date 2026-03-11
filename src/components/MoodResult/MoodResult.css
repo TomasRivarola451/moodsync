@@ -1,7 +1,3 @@
-/* ====================================== */
-/* MOOD RESULT - SECCIONES VERTICALES     */
-/* ====================================== */
-
 .mood-result {
   width: 100%;
   max-width: 1400px;
@@ -138,20 +134,18 @@
   }
 }
 
-/* FIX: Hover con shadow que respeta corner cut */
 .song-card:hover {
   background: rgba(0, 0, 0, 0.75);
   border-color: rgba(var(--accent-rgb, 20, 184, 166), 0.45);
   transform: translateY(-3px);
   
-  /* Shadow respeta el clip-path */
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.7)) 
           drop-shadow(0 0 20px rgba(var(--accent-rgb, 20, 184, 166), 0.3));
   
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Cover de la canción */
+
 .song-card-cover {
   flex-shrink: 0;
   width: 56px;
@@ -186,7 +180,7 @@
   );
 }
 
-/* Info de la canción */
+
 .song-card-info {
   min-width: 0;
   display: flex;
@@ -290,7 +284,7 @@
   overflow: visible !important;
 }
 
-/* Album cards individuales */
+
 .album-card {
   position: absolute;
   top: 50%;
@@ -309,15 +303,15 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* FIX: Imágenes cubren TODA la card sin espacios */
+
 .album-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cubre todo el espacio */
+  object-fit: cover; 
   object-position: center;
 }
 
-/* Título del álbum */
+
 .album-card-title {
   position: absolute;
   bottom: 0;
@@ -340,7 +334,7 @@
   transform: translateY(0);
 }
 
-/* Posiciones iniciales más separadas */
+
 .album-card:nth-child(1) {
   transform: translate(-50%, -50%) rotate(-10deg) translateX(-35px);
   z-index: 1;
@@ -356,7 +350,7 @@
   z-index: 2;
 }
 
-/* Hover stack - MÁS separados */
+
 .albums-stack:hover .album-card:nth-child(1) {
   transform: translate(-50%, -50%) translateX(-200px) rotate(-5deg);
   z-index: 2;
@@ -387,7 +381,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* Info de álbumes */
 .albums-info {
   display: flex;
   flex-direction: column;
@@ -445,10 +438,6 @@
 /* ALBUM OVERLAY - TÍTULOS LEGIBLES      */
 /* ====================================== */
 
-/* ====================================== */
-/* ALBUM OVERLAY - TÍTULOS LEGIBLES      */
-/* ====================================== */
-
 .album-overlay {
   position: absolute;
   bottom: 0;
@@ -456,7 +445,7 @@
   right: 0;
   padding: 16px 12px;
   
-  /* Fondo oscuro con blur para legibilidad */
+
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.92) 0%,
@@ -466,14 +455,12 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   
-  /* FIX: Siempre visible, solo cambia opacidad */
   opacity: 0;
   
-  /* FIX: Sin transform, evita reflow */
   transition: opacity 0.3s ease;
   
   z-index: 2;
-  pointer-events: none; /* No interfiere con clics */
+  pointer-events: none; 
   
   display: flex;
   flex-direction: column;
@@ -484,7 +471,7 @@
   opacity: 1;
 }
 
-/* Título del álbum - MEJORADO */
+
 .album-card-title {
   position: relative;
   bottom: auto;
@@ -498,10 +485,8 @@
   font-weight: 700;
   text-align: left;
   
-  /* Text shadow para mejor contraste */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   
-  /* Truncar si es muy largo */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -511,7 +496,7 @@
   transition: none;
 }
 
-/* Artista del álbum */
+
 .album-card-artist {
   color: var(--secondary-color);
   font-size: 0.8rem;
@@ -526,7 +511,6 @@
   text-overflow: ellipsis;
 }
 
-/* Botón de álbumes */
 .another-recommendation-albums {
   margin-top: 28px;
   align-self: flex-start;
@@ -551,7 +535,7 @@
   transform: translateY(-2px);
 }
 
-/* Overlay con icono de play */
+
 .song-card-overlay {
   position: absolute;
   inset: 0;
@@ -561,19 +545,19 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 12px; /* ← IMPORTANTE: Mismo border-radius que la imagen */
-  overflow: hidden; /* ← AGREGADO: Evita que se salga de las esquinas */
+  border-radius: 12px; 
+  overflow: hidden; 
 }
 
 .song-card-clickable:hover .song-card-overlay {
   opacity: 1;
 }
 
-/* Icono de play - Canciones */
+
 .play-icon {
   width: 48px;
   height: 48px;
-  color: #1DB954; /* Verde Spotify */
+  color: #1DB954; 
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
   transition: transform 0.2s ease;
 }
@@ -582,11 +566,10 @@
   transform: scale(1.1);
 }
 
-/* Asegurar que el cover tenga position relative y overflow hidden */
 .song-card-cover {
   position: relative;
-  overflow: hidden; /* ← AGREGADO: Evita que el overlay se salga */
-  border-radius: 12px; /* ← AGREGADO: Asegura esquinas redondeadas */
+  overflow: hidden; 
+  border-radius: 12px; 
 }
 
 /* ====================================== */
@@ -605,13 +588,13 @@
   transform: translateY(-4px) scale(1.01);
 }
 
-/* Icono de play - Álbumes */
+
 .album-play-icon {
-  width: 40px; /* ← MÁS PEQUEÑO */
+  width: 40px; 
   height: 40px;
   color: #1DB954;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
-  margin-top: 6px; /* ← MENOS ESPACIO */
+  margin-top: 6px; 
   opacity: 0;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -622,34 +605,32 @@
   transform: scale(1);
 }
 
-/* Overlay MUCHO más sutil - Solo 25% inferior */
+
 .album-card-clickable:hover .album-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,        /* Transparente */
-    rgba(0, 0, 0, 0) 60%,       /* Transparente hasta 60% */
-    rgba(0, 0, 0, 0.2) 75%,     /* Apenas oscuro */
-    rgba(0, 0, 0, 0.7) 100%     /* Oscuro solo abajo para texto */
+    rgba(0, 0, 0, 0) 0%,     
+    rgba(0, 0, 0, 0) 60%,    
+    rgba(0, 0, 0, 0.2) 75%,    
+    rgba(0, 0, 0, 0.7) 100%     
   );
 }
 
-/* Centrar contenido del overlay en álbumes */
 .album-overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 16px; /* ← MENOS PADDING */
+  padding-bottom: 16px;
 }
 
-/* Hacer el texto más compacto */
 .album-card-title {
-  font-size: 0.9rem; /* ← MÁS PEQUEÑO si era más grande */
+  font-size: 0.9rem; 
   margin-bottom: 2px;
 }
 
 .album-card-artist {
-  font-size: 0.8rem; /* ← MÁS PEQUEÑO */
+  font-size: 0.8rem; 
 }
 /* ====================================== */
 /* RESPONSIVE */
@@ -670,7 +651,7 @@
     padding: 0 30px;
   }
 
-  /* Hover más contenido en tablets */
+
   .albums-stack:hover .album-card:nth-child(1) {
     transform: translate(-50%, -50%) translateX(-150px) rotate(-5deg);
   }
@@ -695,14 +676,14 @@
     height: 240px;
   }
 
-  /* Álbumes más pequeños en mobile */
+
   .album-card {
     width: 130px;
     height: 180px;
     border-radius: 12px;
   }
 
-  /* Posiciones iniciales más separadas en mobile */
+
   .album-card:nth-child(1) {
     transform: translate(-50%, -50%) rotate(-8deg) translateX(-25px);
   }
@@ -715,7 +696,7 @@
     transform: translate(-50%, -50%) rotate(8deg) translateX(25px);
   }
 
-  /* Hover MÁS SEPARADO en mobile */
+
   .albums-stack:hover .album-card:nth-child(1) {
     transform: translate(-50%, -50%) translateX(-100px) rotate(-5deg);
   }

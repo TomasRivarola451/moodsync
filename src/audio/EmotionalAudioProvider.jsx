@@ -26,7 +26,7 @@ export function EmotionalAudioProvider({ mood, children }) {
     currentFamily !== "neutral" && AUDIO_CONFIG[currentFamily] != null;
 
   useEffect(() => {
-    // Marcar primera interacción global del usuario para cumplir con autoplay policy
+
     const handleFirstInteraction = () => {
       setHasUserInteracted(true);
     };
@@ -103,7 +103,7 @@ export function EmotionalAudioProvider({ mood, children }) {
     const audio = audioRef.current;
     if (!cfg || !audio) return;
 
-    // Actualizar src solo si cambia de archivo
+
     if (audio.src !== window.location.origin + cfg.file && audio.src !== cfg.file) {
       audio.src = cfg.file;
     }
@@ -116,7 +116,6 @@ export function EmotionalAudioProvider({ mood, children }) {
       }
       await fadeVolume(cfg.volume, fadeInMs);
     } catch (err) {
-      // Puede fallar por autoplay policy; no interrumpimos la app
       console.warn("[EmotionalAudio] play failed:", err);
     }
   }
@@ -127,7 +126,7 @@ export function EmotionalAudioProvider({ mood, children }) {
     const prevFamily = currentFamily;
 
     if (nextFamily === prevFamily) {
-      // Nada que hacer: seguimos con el audio actual
+
       return;
     }
 

@@ -44,7 +44,7 @@ ul {
   padding: 0;
 }
 
-/* Botones con cursor pointer */
+
 button {
   cursor: pointer;
   font-family: inherit;
@@ -58,7 +58,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Inputs heredan fuente */
+
 input,
 textarea {
   font-family: inherit;
@@ -69,12 +69,11 @@ textarea:focus {
   outline: none;
 }
 
-/* Smooth scroll para elementos con scroll */
 * {
   scroll-behavior: smooth;
 }
 
-/* Mejores selecciones de texto */
+
 ::selection {
   background: var(--accent-color);
   color: #111;
@@ -85,11 +84,7 @@ textarea:focus {
   color: #111;
 }
 
-/* ====================================== */
-/* SCROLLBAR PERSONALIZADA */
-/* ====================================== */
 
-/* Para Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

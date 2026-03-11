@@ -4,7 +4,6 @@ import './index.css';
 import App from './App.jsx';
 import { ThemeProvider } from './theme/ThemeContext.jsx';
 import './styles/themes.css';
-// src/main.jsx (al inicio)
 const originalWarn = console.warn;
 console.warn = (...args) => {
   if (args[0]?.includes('THREE.Clock')) return;

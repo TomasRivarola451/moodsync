@@ -36,7 +36,7 @@ function MoodResult({ mood, error }) {
     }
   }, [hasApiMood, normalizedMood]);
 
-  // 8 canciones para un grid 2x4
+
   const songs = useMemo(
     () =>
       moodData && Array.isArray(moodData.songs)
@@ -45,7 +45,7 @@ function MoodResult({ mood, error }) {
     [moodData, songsSeed]
   );
 
-  // 3 álbumes aleatorios de los 6 disponibles
+
   const albums = useMemo(
     () =>
       moodData && Array.isArray(moodData.albums)
@@ -72,7 +72,7 @@ function MoodResult({ mood, error }) {
     setAlbumsSeed((prev) => prev + 1);
   };
 
-  // Función para abrir Spotify - Canciones
+
   const handleSongClick = (spotifyId) => {
     if (spotifyId) {
       const spotifyUrl = `https://open.spotify.com/track/${spotifyId}`;
@@ -80,7 +80,7 @@ function MoodResult({ mood, error }) {
     }
   };
 
-  // ← NUEVO: Función para abrir Spotify - Álbumes
+
   const handleAlbumClick = (spotifyId) => {
     if (spotifyId) {
       const spotifyUrl = `https://open.spotify.com/album/${spotifyId}`;

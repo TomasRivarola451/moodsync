@@ -1,12 +1,8 @@
-/* ====================================== */
-/* LOGO CONTAINER */
-/* ====================================== */
-
 .logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px; /* ← ELIMINADO gap */
+  gap: 0px; 
   animation: logo-appear 0.8s cubic-bezier(0.16, 0.84, 0.44, 1);
 }
 
@@ -28,9 +24,9 @@
 .logo-svg {
   width: 100%;
   height: auto;
-  margin-bottom: -24px; /* ← Overlap hacia el título */
+  margin-bottom: -24px;
   
-  /* Mejor renderizado */
+
   image-rendering: -webkit-optimize-contrast;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -57,33 +53,27 @@
   }
 }
 
-/* ====================================== */
-/* SIZE VARIANTS */
-/* ====================================== */
 
-/* Small - Para header compacto */
 .logo-small {
   width: 100px;
 }
 
 .logo-small .logo-svg {
-  animation: none; /* Sin animación en small */
-  margin-bottom: 0; /* Sin overlap en small */
+  animation: none; 
+  margin-bottom: 0; 
 }
 
-/* Medium - Default */
+
 .logo-medium {
   width: 180px;
 }
 
-/* Large - Para hero */
+
 .logo-large {
   width: 220px;
 }
 
-/* ====================================== */
-/* HOVER EFFECT (solo en large) */
-/* ====================================== */
+
 
 .logo-large:hover .logo-svg {
   transform: scale(1.05);
@@ -105,7 +95,7 @@
   }
   
   .logo-svg {
-    margin-bottom: -20px; /* Menos overlap en tablet */
+    margin-bottom: -20px; 
   }
 }
 
@@ -123,6 +113,6 @@
   }
   
   .logo-svg {
-    margin-bottom: -16px; /* Menos overlap en mobile */
+    margin-bottom: -16px; 
   }
 }

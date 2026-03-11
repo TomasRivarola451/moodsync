@@ -1,10 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { normalizeMood } from "../services/moodAI";
 
-/* -------------------------------------------------- */
-/* 🎨 Themes por mood - NEGRO PURO                   */
-/* -------------------------------------------------- */
-
 export const themesByMood = {
   neutral: {
     primaryColor: "#e5e7eb",
@@ -57,9 +53,7 @@ export const themesByMood = {
   },
 };
 
-/* -------------------------------------------------- */
-/* 🧠 Context                                         */
-/* -------------------------------------------------- */
+
 
 const ThemeContext = createContext({
   mood: "neutral",
@@ -78,11 +72,9 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     const root = document.documentElement;
     
-    // SOLO setear el atributo data-theme
-    // El CSS de themes.css hace el resto
     root.setAttribute("data-theme", currentMood);
     
-    // Ritmo de animación (esto está bien dejarlo)
+
     const motionDuration =
       theme.animationStyle === "punchy"
         ? "260ms"

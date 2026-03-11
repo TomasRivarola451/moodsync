@@ -89,9 +89,8 @@ function App() {
     };
   };
 
-  // Actualizar tema según mood + LIMPIAR INLINE STYLES
   useEffect(() => {
-    // Función para limpiar estilos inline
+
     const cleanInlineStyles = () => {
       document.documentElement.style.removeProperty('--bg-gradient');
       document.documentElement.style.removeProperty('--bg-color');
@@ -109,7 +108,7 @@ function App() {
       document.documentElement.setAttribute("data-theme", "neutral");
     }
     
-    // Limpiar estilos inline después de setear el tema
+
     cleanInlineStyles();
   }, [mood]);
 
