@@ -69,31 +69,34 @@
 
 .mood-input-field {
   width: 100%;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* ← CAMBIO: Más visible */
+  padding: 14px 20px;
   border-radius: 12px;
-  color: #ffffff;
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
+  
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(var(--accent-rgb, 20, 184, 166), 0.35);
+  
+  color: var(--primary-color);
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  resize: none;
-  min-height: 100px;
+  
+  box-shadow: 
+    0 0 15px rgba(var(--accent-rgb, 20, 184, 166), 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .mood-input-field::placeholder {
-  color: rgba(255, 255, 255, 0.5); /* ← CAMBIO: Más visible */
+  color: var(--secondary-color);
+  opacity: 0.6;
 }
 
 .mood-input-field:focus {
-  border: 1px solid rgba(var(--accent-rgb), 0.6); /* ← NUEVO: Accent en focus */
-  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15); /* ← NUEVO: Ring focus */
   outline: none;
   background: rgba(255, 255, 255, 0.08);
-}
-
-.mood-input-field:focus::placeholder {
-  color: rgba(255, 255, 255, 0.3); /* ← NUEVO: Se atenúa al escribir */
+  border-color: rgba(var(--accent-rgb, 20, 184, 166), 0.7);
+  box-shadow: 
+    0 0 0 3px rgba(var(--accent-rgb, 20, 184, 166), 0.2),
+    0 0 20px rgba(var(--accent-rgb, 20, 184, 166), 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .mood-input-field:disabled {
