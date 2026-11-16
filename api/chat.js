@@ -222,7 +222,7 @@ export default async function handler(req, res) {
     console.log("[chat] Request message length:", userText.length, "chars");
 
     const completion = await client.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: userText },
